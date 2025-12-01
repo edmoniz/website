@@ -94,9 +94,9 @@
 }
 
 /* This hides requirements page for all purposes except for submission for markng */
-.horizontal li:last-of-type {
+/* .horizontal li:last-of-type {
   display: none;
-}
+} */
 
 /* Responsive design for medium screens, improves transition adjustment */
 @media screen and (max-width: 800px) {
