@@ -9,7 +9,7 @@
   left: 60px;
   top: 60px;
   width: 90%;
-  height: 1100px;
+  height: auto;
   overflow: hidden;
   background-color: #bbb;
   border-radius: 8px;
@@ -17,10 +17,11 @@
 
 /* Lightbox content (image) */
 .lightbox-content {
+  display: flex;
   margin: auto;
   display: block;
   max-width: 90%;
-  max-height: 960px;
+  max-height: auto;
   padding-top: 40px;
   padding-bottom: 40px;
   object-fit: contain;
