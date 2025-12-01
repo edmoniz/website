@@ -13,7 +13,7 @@
 
 
 // two arrays defining the articles
-var articleFileNames = ['onephotoJourney.html', 'lightroom_tips.html', 'virtualCopies.html'];
+var articleFileNames = ['onePhotoJourney.html', 'lightroom_tips.html', 'virtualCopies.html'];
 var menuTitles = ['One Photographers Journey', 'Lightroom Tips', 'Lightroom Virtual Copies'];
 // common path prefix for the articles
 const contentPath = './';
