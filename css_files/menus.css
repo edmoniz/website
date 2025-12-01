@@ -1,0 +1,134 @@
+@charset "utf-8";
+
+
+/*
+
+ Author:  Ed Moniz
+ Student  ID: T00444190
+ Date:    November 2025
+ COMP2681 Capstone Project
+
+ Filename: menus.css
+
+ */
+
+
+
+/* Horizontal Navigation Styles */
+.horizontal {
+/*   border-top: 1px solid var(--primary);
+  border-bottom: 1px solid var(--primary); */
+  color: var(--black);
+  margin-bottom: 20px;
+}
+
+.horizontal a {
+  display: block;
+  line-height: 1.8em;
+  text-align: center;
+  padding: 5px 0;
+  background-color: var(--secondary);
+  font-size: 1.2em;
+  color: var(--primaryDark);
+  text-decoration: none;
+}
+
+.horizontal ul {
+  display: flex;
+  flex: 1;
+  justify-content: space-around;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.horizontal li {
+  display: block;
+  flex-grow: 1;
+  flex-shrink: 0;
+}
+
+.horizontal a:hover,
+.horizontal a:active {
+  color: var(--secondary);
+  background-color: var(--black);
+}
+
+/* Vertical menus */
+.verticalMenu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.verticalMenu li {
+  position: relative;
+  list-style: none;
+}
+
+.verticalMenu a {
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: var(--black);
+  background-color: var(--aside-hr);
+  transition: background-color 0.2s;
+  border: 1px solid var(--black);
+  border-radius: 0.5rem;
+}
+
+/* Hover effect for all links */
+.verticalMenu li:hover>a {
+  background-color: var(--white);
+  color: var(--black);
+}
+
+.verticalMenu a:focus {
+  color: var(--white);
+  background-color: var(--accentDark);
+  font-weight: bold;
+}
+
+#navicon {
+  display: none;
+}
+
+/* This hides requirements page for all purposes except for submission for markng */
+.horizontal li:last-of-type {
+  display: none;
+}
+
+/* Responsive design for medium screens, improves transition adjustment */
+@media screen and (max-width: 800px) {
+  /* Existing rule to hide the menu by default */
+    .horizontal ul {
+      display: none;
+    }
+
+    #navicon {
+      display: block;
+      text-align: center;
+    }
+
+    .horizontal ul.show-menu {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .horizontal li {
+      flex-grow: 1;
+      width: 100%;
+      font-size: .8em;
+    }
+
+  .leftContainer {
+    display: block;
+    width: 90%;
+  }
+
+  .verticalMenu {
+    display: block;
+    width: 100%;
+  }
+  
+}

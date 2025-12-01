@@ -1,0 +1,167 @@
+
+/*
+
+ Author:  Ed Moniz
+ Student  ID: T00444190
+ Date:    November 2025
+ COMP2681 Capstone Project
+
+ Filename: index.css
+
+  This file implements the slide show on index page
+
+ */
+
+.image-container {
+  position: relative;
+  width: 600px;
+  overflow: hidden;
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.caption-overlay {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  padding: 10px;
+  text-align: center;
+  z-index: 10;
+}
+
+.slideshow-container {
+  position: relative;
+  width: 100%;
+  height: auto;
+  /* adjust to match tallest image */
+  overflow: hidden;
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+.image-container.active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 1;
+}
+
+.slideshow-container {
+  flex: 3;
+
+}
+
+.asideRight {
+  flex: 1;
+  padding: 20px;
+  border-left: 1px solid var(--black);
+}
+
+#asideLeft {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+
+.indexBlockquote p {
+  font-size: 1.0em;
+  font-style: italic;
+}
+
+#asideLeft p:first-of-type::first-letter {
+  font-size: 3em;
+  font-family: champagne;
+  font-weight: bold;
+  color: var(--accentDark);
+  float: left;
+  line-height: 1; /* prevent excessive spacing */
+  margin-right: 0.2em;
+}
+
+.future-events {
+  display: flex;
+  border-bottom: 1px solid var(--accentDark);
+}
+
+.event {
+  flex: 1;
+  padding: 20px;
+}
+
+#eventHeading {
+  padding: 10px;
+  margin-left: 10px;
+  font-size: 1.3em;
+}
+
+.eventHeader {
+  font-weight: bold;
+}
+
+
+@media screen and (max-width: 700px) {
+.asideRight {
+  display: none;
+}
+
+.image-container {
+  width: 100%;
+  height: auto;
+}
+
+.image-container img {
+  height: 100%;
+  object-fit: cover;
+  padding-top: 100px;
+  border-radius: 0;
+}
+
+#mainContainer {
+ height: 700px;
+}
+
+.slideshow-container,
+.image-container {
+  width: 95%;
+  height: auto;
+  margin: 0px;
+  padding-top: 20px;
+}
+}
+
+.image-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  /* match your container */
+  transform: translateX(100%);
+  transition: transform 1.2s ease-in-out;
+  z-index: 0;
+  padding-top:30px;
+}
+
+.image-container.active {
+  transform: translateX(0);
+  z-index: 1;
+}
+
+.image-container.exit {
+  transform: translateX(-100%);
+  z-index: 0;
+}
+

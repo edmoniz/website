@@ -1,0 +1,53 @@
+    
+/*
+
+ Author:  Ed Moniz
+ Student  ID: T00444190
+ Date:    November 2025
+ COMP2681 Capstone Project
+
+ Filename: colors.css
+
+ */
+    
+#image {
+  width: 290px;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#figLeft {
+  float: left;
+  margin: 20px 20px 20px 0px;
+}
+
+#figRight {
+  float: right;
+  margin: 20px 0px 20px 20px;
+
+}
+
+.clear {
+  clear: both;
+}
+
+p {
+  padding-top: 10px;
+}
+
+.articleOL {
+  list-style: decimal;
+  margin-left: 30px;
+  font-size: 1.0em;
+}
+
+.articleUL {
+  list-style: disc;
+  margin-left: 30px;
+  font-size: 1.0em;
+}
+
+
+

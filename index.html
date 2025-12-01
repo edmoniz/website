@@ -1,0 +1,175 @@
+
+<!--
+  Author: Ed Moniz
+  Student ID: T00444190
+  Date:   November 2025
+  COMP2681 Capstone Project
+  
+   Filename: index.html
+-->
+
+<!DOCTYPE html>
+<html>
+   <head>
+     
+      
+      <title>Eduardo Moniz</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta charset="utf-8" />
+      <link href="css_files/reset.css" rel="stylesheet">
+      <link rel="icon" href="data:,">
+      <link rel="stylesheet" href="css_files/colors.css">
+      <link rel="stylesheet" href="css_files/layout.css">
+      <link rel="stylesheet" href="css_files/index.css">
+      <link rel="stylesheet" href="css_files/menus.css">
+      <script src="scripts/index.js" defer ></script>
+      <script src="scripts/menus.js" defer ></script>
+      <script src="scripts/countdown.js" ></script>
+   </head>
+
+   <body>
+      <header>
+      <img src="./images/edmoniz_logo.png" alt="Eduardo Moniz">
+      </header>
+         <a id="navicon" href="#">
+            <img src="images/navicon.png" alt="" />       
+      <nav class="horizontal">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="galleries.html">Galleries</a></li>
+            <li><a href="articles.html">Articles</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="tutorials.html">Tutorials</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="form.html">Contact Us</a></li>
+            <li><a href="cross_ref.html">Cross Reference</a></li>          
+        </ul>
+      </nav>
+      <main id="mainContainer">
+         <aside id="asideLeft">
+            <div id="quote">
+               <p>A photographer went to a socialite party in New York. As he entered the front door, the host said, 'I love your pictures - they're wonderful; you must have a fantastic camera.' He said nothing until dinner was finished, then: 'That was a wonderful dinner; you must have a terrific stove.' - Sam Haskins</p>
+               <p>"Photographs are made in your mind not in the camera." -  Ed Moniz</p>
+            </div>
+            <div class="slideshow-container">
+            
+               <div class="image-container">
+                  <img class="mySlides active" src="images/saanichInlet.png">
+                  <div class="caption-overlay">
+                     Saanich Inlet Sunset
+                  </div>
+               </div>
+               <div class="image-container">
+                  <img class="mySlides" src="images/deathValley.png">
+                  <div class="caption-overlay">
+                     Colorado Dunes
+                  </div>
+               </div>
+               <div class="image-container">
+                  <img class="mySlides" src="images/testCollection (8 of 10).jpg">
+                  <div class="caption-overlay">
+                     Water Patterns
+                  </div>
+               </div>
+               <div class="image-container">
+                  <img class="mySlides" src="images/testCollection (9 of 10).jpg">
+                  <div class="caption-overlay">
+                     Reflections of Porto
+                  </div>
+               </div>
+               <div class="image-container">
+                  <img class="mySlides" src="images/testCollection (10 of 10).jpg">
+                  <div class="caption-overlay">
+                     18th Hole St. Andrews Old Course
+                  </div>
+               </div>
+            </div>
+
+         </aside>
+         <aside class="asideRight">
+            <blockquote class="indexBlockquote">
+               <p>A great photograph is a full expression of what one feels about what 
+                  is being photographed in the deepest sense and is thereby a true expression of 
+                  what one feels about life in its entirety.</p>
+               <hr>
+                  <p>&nbsp&nbsp-- Ansel Adams</p> 
+               </blockquote>
+            <hr><hr>
+            <blockquote class="indexBlockquote">
+               <p>If I have any 'message' worth giving to a beginner it 
+                  is that there are no short cuts in photography.
+               </p>
+               <hr>
+               <p>&nbsp&nbsp-- Edward Weston</p>
+               </blockquote>
+               <hr><hr>
+               <blockquote class="indexBlockquote" >
+               <p>You don't take a photograph, you make it</p>
+               <hr>
+               <p>&nbsp&nbsp-- Ansel Adams</p>
+               </blockquote>
+               <hr><hr>
+               <blockquote class="indexBlockquote" >
+               <p>When you approach something to photograph it, first be still with yourself until the object of your attention affirms your presence. 
+                  Then don't leave until you have captured its essence.</p>
+               <hr>
+               <p>&nbsp&nbsp-- Minor White</p>  
+         </aside>
+         
+      </main>
+      <h3 id="eventHeading">Upcoming Events</h3>
+      <div class="future-events">
+         <div class="event">
+            <dl >
+            <dt class="eventHeader">Sidney Camera Club Upcoming Event</dt>
+            <dd>December 9, 2025 from 7:00 PM to 9:00 PM.
+            <hr>
+            <dd class="eventItem">Michael Breakey, FCAPA, will judge "Food Photography" competition. <a href="https://www.sidneycameraclub.ca/club/Events_view.aspx?Eventid=3169fd28-94f7-4049-8861-c1dc68b42a4e">(more information)</a>
+            </dd>
+         </div>
+         <div class="event">
+            <dl >
+            <dt class="eventHeader">Spirithills Education</dt>
+            <dd>Introduction to Photography
+            <hr>
+            <dd class="eventItem">Three classes in January, <a href="https://spirithills.ca/photography-classes/">(more information)</a></dd>
+         </div>
+         
+      </div>
+      <nav class="horizontal">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="galleries.html">Galleries</a></li>
+            <li><a href="articles.html">Articles</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="tutorials.html">Tutorials</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="form.html">Contact Us</a></li>
+            <li><a href="cross_ref.html">Cross Reference</a></li>          
+        </ul>
+      </nav>
+      <footer>
+         <div id="countdown" class="countdown-container">
+            <div class="countdown-blocks"> 
+                  <div><span id="days">--</span><br />Days</div>
+                  <div><span id="hrs">--</span><br />Hours</div>
+                  <div><span id="mins">--</span><br />Minutes</div>
+                  <div><span id="secs">--</span><br />Seconds</div>
+            </div>
+            <p>Until **End of Course** on December 18th 2025</p>
+            <div id="dateNow">Loading current time...</div>
+         </div> 
+         <div id="footerInfo">
+            <p>&copy; 2025 Eduardo Moniz. All rights reserved.</p>
+            <p>Updated November 2025</p>
+            <p>123 Main Street, Saanich, BC, Canada V8X 1A1</p>
+            <ul class="footerLinks">
+                  <li><a href="mailto:info@example.com">info@example.com</a></li>
+                  <li><a href="tel:(123) 456-7890">(123) 456-7890</a></li>
+            </ul>
+            <a class="icons" href="#"><img src="images/twittericon.png" alt="Link to Twitter Profile"/></a>
+            <a class="icons" href="#"><img src="images/fbicon.png" alt="Link to Facebook page"/></a>
+        </div> 
+      </footer>
+   </body>
+</html>

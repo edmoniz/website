@@ -1,0 +1,111 @@
+
+
+<!--   
+    Author: Ed Moniz
+    Student ID: T00444190
+    Date:   November 2025
+    COMP2681 Capstone Project
+
+    Filename: article.html
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Article Website</title>
+    <link rel="stylesheet" href="css_files/reset.css">
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="css_files/colors.css">
+    <link rel="stylesheet" href="css_files/layout.css">
+    <link rel="stylesheet" href="css_files/articles.css">
+    <link rel="stylesheet" href="css_files/galleries.css">
+    <link rel="stylesheet" href="css_files/menus.css">
+    <script src="scripts/articles.js" defer></script>
+    <script src="scripts/menus.js" defer ></script>
+    <script src="scripts/countdown.js" defer></script>
+    <script src="scripts/lightbox.js" defer></script>
+</head>
+
+<body>
+    <header>
+         <a href="index.html"><img src="./images/edmoniz_logo.png" alt="Eduardo Moniz"></a>
+    </header>
+        <a id="navicon" href="#">
+            <img src="images/navicon.png" alt="" />
+    <nav class="horizontal">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="galleries.html">Galleries</a></li>
+            <li><a href="articles.html">Articles</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="tutorials.html">Tutorials</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="form.html">Contact Us</a></li>
+        </ul>
+    </nav>
+    <main id="mainContainer">
+        <aside class="leftContainer" >
+            <nav>
+                <ul class="verticalMenu">
+                  <!-- items will be added by script when page is run   -->
+                </ul>
+            </nav>
+        </aside>
+        <article id="articleContainer">
+            <h2>Welcome to the Articles Section</h2>
+            <h3 id="articleH3">Please select an article from the menu.</h3>
+            <div class="image-stack">
+                <img src="images/articles.webp" 
+                    alt="Image 1" class="stacked-image">
+                <img src="images/tutorials.jpg" 
+                alt="Image 2" class="stacked-image"></a>
+                <img src="images/artGallery.jfif" 
+                alt="Image 3" class="stacked-image"></a>
+            </div>
+        </article>
+    </main>
+    <nav class="horizontal">
+            <ul>
+               <li><a href="index.html">Home</a></li>
+               <li><a href="galleries.html">Galleries</a></li>
+               <li><a href="articles.html">Articles</a></li>
+               <li><a href="resources.html">Resources</a></li>
+               <li><a href="tutorials.html">Tutorials</a></li>
+               <li><a href="about.html">About</a></li>
+               <li><a href="form.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    <footer>
+         <div id="countdown" class="countdown-container">
+            <div class="countdown-blocks"> 
+                  <div><span id="days">--</span><br />Days</div>
+                  <div><span id="hrs">--</span><br />Hours</div>
+                  <div><span id="mins">--</span><br />Minutes</div>
+                  <div><span id="secs">--</span><br />Seconds</div>
+            </div>
+            <p>Until **End of Course** on December 18th 2025</p>
+            <div id="dateNow">Loading current time...</div>
+         </div> 
+         <div id="footerInfo">
+            <p>&copy; 2025 Eduardo Moniz. All rights reserved.</p>
+            <p>Updated November 2025</p>
+            <p>123 Main Street, Saanich, BC, Canada V8X 1A1</p>
+            <ul class="footerLinks">
+                  <li><a href="mailto:info@example.com">info@example.com</a></li>
+                  <li><a href="tel:(123) 456-7890">(123) 456-7890</a></li>
+            </ul>
+            <a class="icons" href="#"><img src="images/twittericon.png" alt="Link to Twitter Profile"/></a>
+            <a class="icons" href="#"><img src="images/fbicon.png" alt="Link to Facebook page"/></a>
+        </div> 
+    </footer>
+    <div id="lightbox" class="lightbox">
+        <span class="close">&times;</span>
+        <span class="prev">&#10094;</span> 
+        <img class="lightbox-content" id="lightbox-img">
+        <span class="next">&#10095;</span>
+        <div id="caption"></div>
+    </div> 
+</body>
+</html>

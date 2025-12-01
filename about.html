@@ -1,0 +1,129 @@
+
+<!--   Author: Ed Moniz
+  Student ID: T00444190
+  Date:   November 2025
+  COMP2681 Capstone Project
+
+  Filename: about.html -->
+
+
+<style>
+   /* ensure the parent article allows the inner flex container to take full width */
+  #mainContainer.contentGrid {
+   display: grid;
+   /* define two columns. The main content will go into this grid. */
+   grid-template-columns: 1fr 2fr;
+   /* set a slight row gap for separation between the title and the content */
+   grid-row-gap: 25px; 
+}
+
+   #mainContainer h2 {
+      font-size: 1.5em;
+      padding: 15px;
+      color: var(--secondary);
+      background-color: var(--accentDark);
+      width: auto;
+      text-align: center;
+      border-radius: 10px;
+      margin-top: 0px;
+      margin-bottom: 15px;
+      box-shadow: 5px 5px 10px var(--accentDark);
+      grid-column: 1 / -1;
+}
+
+   .bio-content {
+      width: auto;
+      padding: 0px 0px 20px 0px;
+   }
+
+   .bio-image img {
+   width: 100%;
+   max-width: 100%;
+   height: auto;
+   border-radius: 8px;
+   }
+</style>
+
+
+
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Eduardo Moniz</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta charset="utf-8" />
+      <link href="css_files/reset.css" rel="stylesheet">
+      <link rel="icon" href="data:,">
+      <link rel="stylesheet" href="css_files/colors.css">
+      <link rel="stylesheet" href="css_files/layout.css">
+      <link rel="stylesheet" href="css_files/menus.css">
+      <script src="scripts/countdown.js" defer></script>
+   </head>
+      
+   <body>
+      <header>
+         <a href="index.html"><img src="./images/edmoniz_logo.png" alt="Eduardo Moniz"></a>
+      </header>
+      <nav class="horizontal">
+        <ul>
+         <li><a href="index.html">Home</a></li>
+         <li><a href="galleries.html">Galleries</a></li>
+         <li><a href="articles.html">Articles</a></li>
+         <li><a href="resources.html">Resources</a></li>
+         <li><a href="tutorials.html">Tutorials</a></li>
+         <li><a href="about.html">About</a></li>
+         <li><a href="form.html">Contact Us</a></li>
+        </ul>
+      </nav>
+      <main id="mainContainer" class="contentGrid">
+         <h2>Eduardo Moniz</h2>
+         
+         <div class="bio-image">
+               <img src="images/moniz_ed.jpg" alt="">
+         </div>
+         <div class="bio-content"> 
+            <p>Ed has been accredited in Night Photography by the 
+            Professional Photographers of Canada (PPOC) and 
+            was awarded the designation of Craftsman of Photographic 
+            Arts by the PPOC. Formal training included black and white darkroom 
+            printing, Sante Fe Workshops Black and White Master 
+            Print series, Design Principles at Vancouver Island School 
+            of Art and a one-year mentorship program with the highly 
+            esteemed George DeWolfe.</p>
+            <p>In addition, many seminars and workshops have helped develop both artistic and technical 
+            skills. As a long-time photographer who reacts to and records 
+            the world around him, currently areas of interest are 
+            landscape and nature photography. </p> 
+            
+            <p>He is a former member and past president of the Victoria Camera Club and over 
+            the years has presented many workshops in Lightroom, 
+            Digital Editing and Fundamentals of Black and White.
+            </p>
+         </div>
+      </main>
+   
+      <footer>
+         <div id="countdown" class="countdown-container">
+            <div class="countdown-blocks"> 
+                  <div><span id="days">--</span><br />Days</div>
+                  <div><span id="hrs">--</span><br />Hours</div>
+                  <div><span id="mins">--</span><br />Minutes</div>
+                  <div><span id="secs">--</span><br />Seconds</div>
+            </div>
+            <p>Until **End of Course** on December 18th 2025</p>
+            <div id="dateNow">Loading current time...</div>
+         </div> 
+         <div id="footerInfo">
+            <p>&copy; 2025 Eduardo Moniz. All rights reserved.</p>
+            <p>Updated November 2025</p>
+            <p>123 Main Street, Saanich, BC, Canada V8X 1A1</p>
+            <ul class="footerLinks">
+                  <li><a href="mailto:info@example.com">info@example.com</a></li>
+                  <li><a href="tel:(123) 456-7890">(123) 456-7890</a></li>
+            </ul>
+            <a class="icons" href="#"><img src="images/twittericon.png" alt="Link to Twitter Profile"/></a>
+            <a class="icons" href="#"><img src="images/fbicon.png" alt="Link to Facebook page"/></a>
+         </div> 
+      </footer>
+   </body>
+</html>

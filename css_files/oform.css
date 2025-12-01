@@ -1,0 +1,179 @@
+
+/*
+
+  Author:  Ed Moniz
+  Student  ID: T00444190
+  Date:    November 2025
+  COMP2681 Capstone Project
+
+  Filename: oform.css
+
+ */
+
+article {
+  margin: 0px auto;
+}
+
+article p {
+  font-style: italic;
+  text-align: center;
+}
+
+form {
+  margin: 30px 0px;
+  background-color: var(--primary);
+  border-radius: 10px;
+}
+
+#contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+#contact fieldset {
+  flex: 1;
+  min-width: 300px;
+}
+
+#cust_info p {
+  text-align: left;
+  margin-bottom: 10px;
+  color: var(--red);
+  font-size: 1.0em;
+  font-weight: bold;
+  font-style: normal;
+}
+
+legend {
+  background-color: var(--black);
+  color: var(--white);
+  font-size: 1.2em;
+  font-weight: bold;
+  padding: 5px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+input[type='submit'],
+input[type='reset'] {
+  font-size: 1.2em;
+  padding: 10px;
+  margin: 15px;
+  background-color: var(--primary);
+  color: var(--black);
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+#submitButton:hover,
+#resetButton:hover,
+#submitButton:active,
+#resetButton:active {
+  color: var(--white);
+  background-color: var(--black);
+}
+
+.buttons {
+display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+#submitButton,  
+#resetButton {
+  margin-right: 30px;
+}
+
+.formRow {
+  margin-bottom: 15px;
+  display: block;
+}
+
+label {
+  font-size: 1.0em;
+  color: var(--black);
+  display: block;
+  width: 100%;
+  text-align: left;
+  margin-bottom: 5px;
+}
+
+.formRow input[type="text"],
+.formRow input[type="tel"],
+.formRow input[type="email"],
+.formRow select,
+.formRow textarea {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  font-size: 1.0em;
+}
+
+input[type="checkbox"] {
+  display: inline-block;
+  width: auto;
+}
+
+textarea {
+  height: 120px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  background-color: var(--accentLight);
+}
+
+#fname:focus:valid,
+#lname:focus:valid,
+#postal:focus:valid,
+#phone:focus:valid,
+#mail:focus:valid {
+  background-color: var(--inputValid);
+  background-image: url("../images/em_valid.png");
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: contain;
+}
+
+#fname:focus:invalid,
+#lname:focus:invalid,
+#postal:focus:invalid,
+#phone:focus:invalid,
+#mail:focus:invalid {
+  background-color: var(--inputInvalid);
+  background-image: url("../images/em_invalid.png");
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: contain;
+}
+            
+            
+/* This section applies to the form.html page  */
+@media screen and (min-width: 990px) {
+  .formRow {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  /* Reset label and input properties for the row layout */
+  .formRow label {
+    width: 200px;
+    flex-shrink: 0;
+    margin-bottom: 0;
+    text-align: left;
+  }
+
+  .formRow input[type="text"],
+  .formRow input[type="tel"],
+  .formRow input[type="email"],
+  .formRow select,
+  .formRow textarea {
+    width: 200px;
+    flex-grow: 1;
+  }
+
+}

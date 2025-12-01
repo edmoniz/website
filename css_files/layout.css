@@ -1,0 +1,504 @@
+
+/*    Author: Ed Moniz
+      Student ID: T00444190
+      Date: November 2025 
+      COMP2681 Capstone Project 
+      Filename: layout.css
+*/
+
+@charset "utf-8";
+
+@font-face {
+  font-family: Champagne;
+  src: url(../cac_champagne.woff) format('woff'),
+    url(../cac_champagne.ttf) format('truetype');
+}
+
+html {
+  background-color: rgba(240, 248, 255, 0.5);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+body {
+  max-width: 1024px;
+  min-width: 320px;
+  margin: auto;
+  background-color: var(--secondary);
+  line-height: 1.2em;
+}
+
+header {
+  display: flex;
+  background-color: var(--secondary);
+  align-items: center;
+  padding: 15px 20px;
+}
+
+header h2 {
+  font-size: 3em;
+  color: var(--secondary);
+  font-family: Champagne, cursive;
+  font-weight: lighter;
+  margin-left: 20px;
+}
+
+header img {
+  width: 90%;
+  height: auto;
+  margin: 10px;
+}
+
+/* Styling for the Main Section */
+#mainsection,
+#mainContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  padding: 20px;
+  border-top: 1px solid var(--accentDark);
+  border-bottom: 1px solid var(--accentDark);
+}
+
+/* General paragraph style, but overriding with more specific grid-based style later */
+p {
+  font-size: 1.1em;
+  color: var(--black);
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+
+
+/* Vertical Navigation/Left Container */
+#leftContainer {
+  flex: 1;
+  min-width: 0;
+  padding: 15px;
+}
+
+
+/* Content Grid/Article Container */
+.content-grid {
+  flex: 1;
+  /* defines growth within #mainsection  */
+  min-width: 0;
+  display: grid;
+  /* this is a grid container */
+  grid-template-columns: 1fr;
+  gap: 40px;
+  font-size: 1.1em;
+  padding: 20px;
+}
+
+#articleContainer {
+flex: 3;
+min-width: 0;
+display: flex; 
+flex-wrap: wrap;
+gap: 10px;
+font-size: 1.1em;
+padding: 20px;
+}
+
+/* Styles for individual content items */
+.content-item,
+ #content-item {
+  flex: 3;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px 20px;
+  padding: 20px 0px;
+} 
+
+#image-left,
+#image-right {
+  flex: 0 1 50%;
+  min-width: 280px;
+  cursor: pointer;
+  float: left;
+}
+
+#image-left,
+#image-right {
+  flex: 0 0 40%;
+}
+
+.item-body {
+  flex: 0 1 auto;
+  min-width: 300px;
+}
+
+.item-body ul {
+  list-style-type: disc;
+  list-style-position: inside;
+  margin-left: 5px;
+  padding-left: 5px;
+}
+
+.item-body li {
+  font-size: 0.9em;
+  padding-left: 1.0em;
+    /* adjust this value for the desired indent depth */
+  text-indent: -1.4em;
+}
+
+.content-grid img {
+  max-width: 40%;
+  height: auto;
+  float: left;
+}
+
+.content-grid h2,
+#articleContainer h2,
+.h2Heading {
+  font-size: 1.5em;
+  padding: 15px;
+  color: var(--secondary);
+  background-color: var(--accentDark);
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  border-radius: 10px;
+  margin-top: 0px;
+  margin-bottom: 15px;
+  box-shadow: 5px 5px 10px var(--accentDark);
+}
+
+.h3Heading {
+  font-size: 1.1em;
+  padding: 15px;
+  color: var(--accentDark);
+  text-align: left;
+  margin-top: 0px;
+  margin-bottom: 15px;
+}
+
+.content-grid p {
+  /* overrides the less specific 'p' rule with File One's specific content-grid paragraph style */
+  margin: 10px 0px;
+  color: var(--black);
+  font-size: 1.0em;
+}
+
+.article-list li {
+  list-style: circle;
+  margin-top: 5px;
+  margin-left: 45px;
+  line-height: 1.2;
+}
+
+aside {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+aside blockquote {
+  flex-grow: 1;
+  margin-top: 0px;
+}
+
+/* Styles for Footer */
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 20px;
+  background-color: var(--secondary);
+  text-align: center;
+  margin-top: 20px;
+  align-items: flex-start;
+}
+
+#currentDate,
+#footerInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+#timeHeading {
+  padding-top: 30px;
+  font-size: 1.3em;
+  color: var(--accentDark);
+  font-family: 'Trebuchet MS' sans-serif, Helvetica, sans-serif;
+}
+
+#dateNow {
+  font-size: 1.3em;
+  padding: 20px;
+  line-height: 1.1em;
+  color: var(--accentDark);
+  font-family: 'Trebuchet MS', Helvetica, sans-serif;
+}
+
+footer p {
+  font-size: 1.1em;
+  color: var(--black);
+  margin-bottom: 15px;
+}
+
+.footerLinks li {
+  margin-bottom: 10px;
+}
+
+.footerLinks a {
+  text-decoration: none;
+  color: var(--black);
+}
+
+.icons img {
+  width: 3em;
+}
+
+
+/* Styles for countdown */
+#countdown {
+  /* Set the dynamic color based on days left (controlled by JavaScript) */
+  color: #4CAF50;
+  /* Fallback to a nice green */
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  /* Makes the countdown block a Flex container */
+  flex-direction: column;
+  /* Stacks its internal content vertically */
+  align-items: flex-start;
+  /* Transition color changes smoothly */
+  transition: color 0.5s ease-in-out;
+  margin: 0px auto;
+  /* Center the block on the page */
+}
+      
+/*
+  Targets the row of time units (Days, Hours, Minutes, Seconds).
+*/
+.countdown-blocks {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  /* Aligns content to the top within the flex item */
+  margin-bottom: 20px;
+}
+
+.countdown-blocks>div {
+  flex: 1;
+  /* ensures each block takes an equal amount of space */
+  padding: 10px;
+  margin: 0 5px;
+  border-right: 1px solid #eee;
+  /* light separator line between blocks */
+}
+
+/* remove the separator from the last block */
+.countdown-blocks>div:last-child {
+  border-right: none;
+}
+      
+/*
+  targets the large numbers (Days, Hours, etc.) inside the blocks.
+*/
+.countdown-blocks span {
+  display: block;
+  /* Makes the number take up its own line */
+  font-size: 2.5em;
+  /* Large size for the numbers */
+  font-weight: bold;
+  line-height: 1.1;
+  /* Adjust spacing above/below the number */
+}
+      
+/*
+  Label Styling
+  Targets the text labels (Days, Hours, etc.) below the numbers.
+*/
+
+.countdown-blocks br + div {
+  /* Styling for the text "Days", "Hours", etc. */
+  font-size: 0.9em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 5px;
+}
+      
+/*
+  Current Date Display Styling
+*/
+#dateNow {
+  margin-top: 15px;
+  padding-top: 10px;
+  border-top: 1px dashed #ccc;
+  font-size: 0.9em;
+  font-style: italic;
+}
+      
+/*
+  Countdown Text Styling
+*/
+#countdown p {
+  font-size: 1.2em;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+      
+/*
+  improves the look when the color changes based on the days left logic.
+*/
+#countdown * {
+  transition: color 0.5s ease-in-out;
+}
+
+
+/* This section deals with the stacked images on pages galleries.html articles.html
+tutorials.html */
+
+#articleContainer {
+  position: relative;
+  min-height: 550px;
+  padding: 20px;
+}
+
+.image-stack {
+  position: relative;
+  /* Treat this as a grouping container */
+  /* Set the stack's position below the headings */
+  top: 50px;
+  left: 50%;
+  /* Start the stack at the horizontal center */
+  transform: translateX(-50%);
+  /* Move it back by half its width to truly center it */
+  width: 550px;
+  /* Give the stack a width so translateX can work accurately */
+  height: 450px;
+}
+
+.stacked-image {
+  position: absolute;
+  /* Reset these to 0/0. They will now be relative to the centered .image-stack */
+  top: 0;
+  left: 0;
+  width: 350px;
+  height: 250px;
+  transform: scale(1) translate(0, 0);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  z-index: 10;
+  /* Ensure the images are visible */
+}
+
+/* 📸 Individual Image Offsets (now relative to the 0/0 point of the centered stack) */
+
+.stacked-image:nth-child(1) {
+  top: 100px;
+  left: 75px;
+  width: auto;
+  height: 250px;
+  transform: rotate(-10deg);
+  cursor: pointer;
+  z-index: 6;
+}
+
+.stacked-image:nth-child(2) {
+  top: 0px;
+  left: 0px;
+  width: 325px;
+  height: auto;
+  transform: rotate(-20deg);
+  opacity: .3;
+  z-index: 5;
+}
+
+.stacked-image:nth-child(3) {
+  top: 38px;
+  left: 290px;
+  /* Shift the third image even further right */
+  width: 300px;
+  height: auto;
+  transform: rotate(10deg);
+  opacity: .3;
+  z-index: 4;
+}
+
+.stacked-image:hover {
+  z-index: 10;
+  transform: scale(1.7) translate(-4%, 5%);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+  transition-delay: 0.4s;
+  opacity: 1;
+}
+
+/* Responsive design for medium screens, improves transition adjustment */
+@media screen and (max-width: 700px) {
+
+#mainsection,
+#mainContainer {
+    /* Including mainContainer for robustness */
+    flex-direction: column;
+    width: 100%;
+    margin-left: 20px;
+  }
+
+
+aside {
+  display: none;
+}
+
+#leftContainer {
+  /* Including #leftContainer for robustness */
+  flex: auto;
+  width: 50%;
+  /* Keeping 50% width from File One */
+  min-width: unset;
+  padding: 10px;
+}
+
+#articleContainer h2 {
+  font-size: 1.1em;
+  line-height: 1.2em;
+
+}
+
+.image-container {
+  width: 100%;
+  height: auto;
+}
+
+.image-container img {
+  height: 100%;
+  object-fit: cover;
+  padding-top: 100px;
+  border-radius: 8px;
+}
+
+}
+
+/* Responsive design adjustments for small screens */
+@media screen and (max-width: 640px) {
+#mainsection,
+#mainContainer {
+  /* Including mainContainer for robustness */
+  flex-direction: column;
+  width: 100%;
+}
+
+
+.content-item,
+#content-item {
+  flex-direction: column;
+  align-items: center;
+}
+
+/* aside {
+  display: none;
+} */
+
+footer {
+  flex-direction: column;
+  align-items: center;
+}
+
+}

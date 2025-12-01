@@ -1,0 +1,130 @@
+
+
+/*    
+  Author: Ed Moniz
+  Student ID: T00444190
+  Date: November 2025 
+  COMP2681 Capstone Project 
+  Filename: resources.css 
+*/
+
+#main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 5px;
+  flex-wrap: wrap;
+  overflow: auto;
+}
+
+.articleP {
+  padding: 10px;
+}
+
+.topContainer {
+  margin: 30px;
+}
+
+.bottom-container {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  flex-wrap: wrap;
+  height: auto;
+  min-height: 0;
+  max-height: none;
+  overflow: visible;
+}
+
+.bottom-container>div {
+  flex: 0 1 calc(25% - 15px);
+  min-width: 150px;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  background-color: rgba(230, 230, 250, 0.5);
+  border-radius: 8px;
+}
+
+.bottom-container img {
+  width: 100%;
+  height: auto;
+}
+
+.bottom-container .video-launcher a {
+  display: block;
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+}
+
+.bottom-container .video-launcher a p {
+  /* This ensures the text stays at the bottom of the image */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  color: var(--black);
+  padding: 5px;
+  box-sizing: border-box;
+  text-align: left;
+  font-size: 1.0em;
+  font-weight: bold;
+  background: var(--galleryBorder);
+}
+
+.topContainer {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.itemContainer {
+  display: flex;
+  flex-direction: column;
+  height: 275px;
+  width: 300px;
+  padding: 10px;
+  border: 1px solid var(--accentDark);
+  border-radius: 8px;
+  background-color: var(--galleryBorder);
+}
+
+.articleP {
+  flex-grow: 1;
+}
+
+/* push the link to the bottom using auto margin */
+.itemContainer a {
+  margin-top: auto;
+}
+
+.itemContainer h3 {
+  text-align: center;
+  font-size: 1.2em;
+  background-color: var(--accentDark);
+  color: var(--white);
+  padding: 5px;
+  border-radius: 8px;
+
+}
+
+.itemContainer a {
+  font-size: 1.0em;
+  text-align: center;
+
+}
+
+@media (max-width: 768px) {
+  .bottom-container {
+      flex-wrap: wrap;
+      width: 100%;
+      height: auto;
+      margin: 0 auto;
+    }
+
+  .itemContainer {
+    margin: 0 auto;
+  }
+}
