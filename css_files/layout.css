@@ -209,9 +209,9 @@ footer {
   text-align: center;
   margin-top: 20px;
   align-items: flex-start;
+  flex-wrap: wrap;
 }
 
-#currentDate,
 #footerInfo {
   flex: 1;
   min-width: 0;
