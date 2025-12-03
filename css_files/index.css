@@ -91,14 +91,17 @@
   margin-right: 0.2em;
 }
 
-.future-events {
+.futureEvents {
   display: flex;
-  border-bottom: 1px solid var(--accentDark);
+  gap: 10px;
 }
 
 .event {
   flex: 1;
   padding: 20px;
+  width: 300px;
+  border: 1px solid var(--accentDark);
+  border-radius: 8px;
 }
 
 #eventHeading {

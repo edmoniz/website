@@ -20,7 +20,6 @@ function setupLightbox() {
     console.warn("Lightbox element not found, cannot set up lightbox.");
     return;
   }
-
   // This prevents it from appearing open and empty when the content loads.
   lightbox.style.display = "none";
 
@@ -51,6 +50,7 @@ function setupLightbox() {
       currentIndex = index;
       // this calls the noscroll css
       document.body.classList.add('no-scroll');
+/*       document.body.classList.add('lightbox-open-effect'); */
     }
   }
 
@@ -58,7 +58,7 @@ function setupLightbox() {
   galleryImages.forEach(img => {
     img.addEventListener("click", function () {
       // only set display to block when an image is clicked!
-      lightbox.style.display = "block";
+      lightbox.style.display = "flex";
 
       const clickedIndex = parseInt(this.getAttribute("data-index"));
       showImage(clickedIndex);
@@ -69,6 +69,7 @@ function setupLightbox() {
     closeBtn.addEventListener("click", function () {
       lightbox.style.display = "none";
       document.body.classList.remove('no-scroll');
+      document.body.classList.remove('lightbox-open-effect');
     });
   }
 
@@ -94,6 +95,7 @@ function setupLightbox() {
     if (event.target == lightbox) {
       lightbox.style.display = "none";
       document.body.classList.remove('no-scroll');
+      document.body.classList.remove('lightbox-open-effect');
     }
   });
 

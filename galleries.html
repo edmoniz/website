@@ -23,7 +23,6 @@
     <link rel="stylesheet" href="css_files/lightbox.css">
     <script src="scripts/galleries.js" defer></script>
     <script src="scripts/menus.js" defer></script>
-    <script src="scripts/countdown.js" defer></script>
     <script src="scripts/lightbox.js" defer></script>
 </head>
 <body>
@@ -75,34 +74,26 @@
             </ul>
         </nav>
     <footer>
-         <div id="countdown" class="countdown-container">
-            <div class="countdown-blocks"> 
-                  <div><span id="days">--</span><br />Days</div>
-                  <div><span id="hrs">--</span><br />Hours</div>
-                  <div><span id="mins">--</span><br />Minutes</div>
-                  <div><span id="secs">--</span><br />Seconds</div>
-            </div>
-            <p>Until **End of Course** on December 18th 2025</p>
-            <div id="dateNow">Loading current time...</div>
-         </div> 
-         <div id="footerInfo">
-            <p>&copy; 2025 Eduardo Moniz. All rights reserved.</p>
-            <p>Updated November 2025</p>
-            <p>123 Main Street, Saanich, BC, Canada V8X 1A1</p>
-            <ul class="footerLinks">
-                  <li><a href="mailto:info@example.com">info@example.com</a></li>
-                  <li><a href="tel:(123) 456-7890">(123) 456-7890</a></li>
-            </ul>
-            <a class="icons" href="#"><img src="images/twittericon.png" alt="Link to Twitter Profile"/></a>
-            <a class="icons" href="#"><img src="images/fbicon.png" alt="Link to Facebook page"/></a>
-        </div> 
-      </footer>
-      <div id="lightbox" class="lightbox">
-          <span class="close">&times;</span>
-          <span class="prev">&#10094;</span> 
-          <img class="lightbox-content" id="lightbox-img">
-          <span class="next">&#10095;</span>
-          <div id="caption"></div>
+      <div id="footerInfo">
+          <p>&copy; 2025 Eduardo Moniz. All rights reserved.</p>
+          <p>Updated November 2025</p>
+          <p>123 Main Street, Saanich, BC, Canada V8X 1A1</p>
+          <ul class="footerLinks">
+                <li><a href="mailto:info@example.com">info@example.com</a></li>
+                <li><a href="tel:(123) 456-7890">(123) 456-7890</a></li>
+          </ul>
       </div> 
+    </footer>
+    <div id="lightbox">
+      <div class="lightbox-content">
+        <span class="close">×</span>
+        <a class="prev">&#10094;</a>
+        <a class="next">&#10095;</a>
+
+        <img id="lightbox-img" src="" alt=""> 
+        <div id="caption">...</div> 
+
+      </div>
+    </div>
 </body>
 </html>
