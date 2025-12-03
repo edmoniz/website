@@ -365,34 +365,24 @@ tutorials.html */
 
 .image-stack {
   position: relative;
-  /* Treat this as a grouping container */
-  /* Set the stack's position below the headings */
   top: 50px;
   left: 50%;
-  /* Start the stack at the horizontal center */
   transform: translateX(-50%);
-  /* Move it back by half its width to truly center it */
   width: 550px;
-  /* Give the stack a width so translateX can work accurately */
   height: 450px;
 }
 
 .stacked-image {
-  position: absolute;
-  /* Reset these to 0/0. They will now be relative to the centered .image-stack */
-  top: 0;
-  left: 0;
-  width: 350px;
-  height: 250px;
-  transform: scale(1) translate(0, 0);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  margin: 0 auto;
+  width: 90%;
+  height: auto;
+  border-radius: 8px;
   z-index: 10;
-  /* Ensure the images are visible */
 }
 
 /* 📸 Individual Image Offsets (now relative to the 0/0 point of the centered stack) */
 
-.stacked-image:nth-child(1) {
+/* .stacked-image:nth-child(1) {
   top: 100px;
   left: 75px;
   width: auto;
@@ -415,7 +405,6 @@ tutorials.html */
 .stacked-image:nth-child(3) {
   top: 38px;
   left: 290px;
-  /* Shift the third image even further right */
   width: 300px;
   height: auto;
   transform: rotate(10deg);
@@ -429,7 +418,7 @@ tutorials.html */
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
   transition-delay: 0.4s;
   opacity: 1;
-}
+} */
 
 /* Responsive design for medium screens, improves transition adjustment */
 @media screen and (max-width: 700px) {
