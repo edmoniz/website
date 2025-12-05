@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Caption Extractor</title>
+</head>
+<body>
+  <h2>Image Caption Extractor</h2>
+  
+  <label for="imageUpload">Upload Image:</label>
+  <input type="file" id="imageUpload" accept="image/*">
+  <p>Check the browser's console after uploading a file with embedded metadata.</p>
+  
+  <script src="https://cdn.jsdelivr.net/npm/exifr/dist/full.umd.js"></script>
+  
+  <script>
+    // The exifr object is now globally available because of the CDN script tag.
+
+    async function getEmbeddedCaption(imageFile) {
+      try {
+        // We pass the File object directly to exifr.parse
+        const output = await exifr.parse(imageFile, { iptc: true, exif: true });
+        
+        console.log("--- All Extracted Metadata:", output); // Helpful for debugging
+        
+        // IPTC 'Caption/Abstract' is a common field for captions (often used by photographers)
+        if (output.CaptionAbstract) {
+          return output.CaptionAbstract;
+        }
+        
+        // EXIF 'ImageDescription' can also be used for captions
+        if (output.ImageDescription) {
+          return output.ImageDescription;
+        }
+        
+        return null; // No caption found in metadata
+      } catch (error) {
+        console.error("Error extracting metadata:", error);
+        return null;
+      }
+    }
+
+    // Event listener attached to the file input
+    const fileInput = document.getElementById('imageUpload');
+    fileInput.addEventListener('change', async (event) => {
+      // event.target.files[0] gives us the first selected File object
+      const file = event.target.files[0];
+      
+      if (file) {
+        console.log(`Processing file: ${file.name}`);
+        const caption = await getEmbeddedCaption(file);
+        
+        if (caption) {
+          console.log("✅ Embedded Caption Found:", caption);
+          alert("Caption Found: " + caption); // Display the result in an alert
+        } else {
+          console.log("❌ No embedded caption (IPTC or EXIF) found in the image.");
+          alert("No embedded caption found.");
+        }
+      }
+    });
+  </script>
+</body>
+</html>
