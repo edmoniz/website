@@ -1,9 +1,8 @@
 /*
 
  Author:  Ed Moniz
- Student  ID: T00444190
  Date:    November 2025
- COMP2681 Capstone Project
+ EdMonizPhotography Website
 
  Filename: colors.css
   This file provides the color pallette for the Capstone Project
@@ -12,7 +11,7 @@
 :root {
 /* Main colors */
   --primary: lightgray;
-  --primaryDark: hsla(0, 0%, 50%, 1);
+  --primaryDark: hsla(0, 0%, 38%, 1); /* ~6:1 contrast on white — WCAG AA for nav links */
   --secondary: hsla(0, 0%, 100%, 1);
     
   /* Accent colors */

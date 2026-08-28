@@ -2,19 +2,20 @@
 
 /* 
   Author: Ed Moniz
-  Student ID: T00444190
   Date: November 2025
-  COMP2681 Capstone Project
+  EdMonizPhotography Website
 
   Filename: tutorials.js 
 */
 
 // the two arrays defining the tutorials
-var articleFileNames = ['../bananaFlowerTutorial.html', '../malvernHallTutorial.html', "../sagauroCactus.html"];
+(function () {
+  'use strict';
+var articleFileNames = ['bananaFlowerTutorial.html', 'malvernHallTutorial.html', 'sagauroCactus.html'];
 var menuTitles = ['Banana Flower Tutorial', 'Malvern Hall', 'Sagauro Cactus' ]; // Simplified the titles
 
 // common path prefix for the articles
-const contentPath = './subpageContent/';
+const contentPath = './';
 
 document.addEventListener('DOMContentLoaded', () => {
   const navElement = document.querySelector('aside.leftContainer nav');
@@ -69,3 +70,4 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+})();

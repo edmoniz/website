@@ -2,9 +2,8 @@
 /*
 
  Author:  Ed Moniz
- Student  ID: T00444190
  Date:    November 2025
- COMP2681 Capstone Project
+ EdMonizPhotography Website
 
  Filename: galleries.css
 
@@ -85,8 +84,8 @@ margin: 10px 10px;
 padding: 10px 10px;
 }
 
-#image-left img,
-#image-right img {
+.image-left img,
+.image-right img {
   width: 75%;
   height: auto;
   margin: 10px auto;

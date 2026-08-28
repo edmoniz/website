@@ -4,15 +4,29 @@
 /*
 
  Author:  Ed Moniz
- Student  ID: T00444190
  Date:    November 2025
- COMP2681 Capstone Project
+ EdMonizPhotography Website
 
  Filename: menus.css
 
  */
 
 
+
+/* Skip link — visible only when focused via keyboard */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  padding: 10px 15px;
+  background-color: var(--black);
+  color: var(--white);
+  z-index: 2000;
+}
+
+.skip-link:focus {
+  left: 0;
+}
 
 /* Horizontal Navigation Styles */
 .horizontal {
@@ -91,6 +105,11 @@
 
 #navicon {
   display: none;
+  width: 100%;
+  padding: 5px;
+  background: none;
+  border: 0;
+  cursor: pointer;
 }
 
 /* This hides requirements page for all purposes except for submission for markng */

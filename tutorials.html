@@ -1,9 +1,8 @@
 
 <!-- 
   Author: Ed Moniz
-  Student ID: T00444190
   Date:   November 2025
-  COMP2681 Capstone Project
+  EdMonizPhotography Website
 
   Filename: tutorials.html
 -->
@@ -12,8 +11,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>Tutorials &mdash; Eduardo Moniz</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Galleries Website</title>
+    <meta name="description" content="Step-by-step photography editing tutorials by Eduardo Moniz: the banana flower, Malvern Hall subtractive editing, and the saguaro cactus.">
+    <meta name="author" content="Eduardo Moniz">
     <link rel="stylesheet" href="css_files/reset.css">
     <link rel="icon" href="data:,">
     <link rel="stylesheet" href="css_files/colors.css">
@@ -27,11 +28,13 @@
 </head>
 
 <body>
+      <a class="skip-link" href="#mainContainer">Skip to main content</a>
     <header>
         <a href="index.html"><img src="images/edmoniz_logo.png" alt="Eduardo Moniz"></a>
     </header>
-        <a id="navicon" href="#">
+        <button id="navicon" type="button" aria-label="Toggle navigation menu" aria-expanded="false">
             <img src="images/navicon.png" alt="" />
+        </button>
     <nav class="horizontal">
         <ul>
           <li><a href="index.html">Home</a></li>
@@ -57,7 +60,7 @@
             <h2>Welcome to the Tutorial Section</h2>
             <h3 id="galleryH3">Select a tutorial from the menu.</h3>
             <div class="image-stack">
-                <img src="images/tutorials.jpg" alt="Image 1" class="stacked-image">
+                <img src="images/tutorials.jpg" alt="" class="stacked-image">
             </div>
         </article>
      </main>
@@ -75,14 +78,14 @@
     <footer>
          <div id="footerInfo">
                <p>&copy; 2026 Eduardo Moniz. All rights reserved.</p>
-               <p>Updated July 2026</p>
+               <p>Updated August 2026</p>
          </div>   
       </footer>
     <div id="lightbox">
       <div class="lightbox-content">
-        <span class="close">×</span>
-        <a class="prev">&#10094;</a>
-        <a class="next">&#10095;</a>
+        <button type="button" class="close" aria-label="Close">×</button>
+        <button type="button" class="prev" aria-label="Previous image">&#10094;</button>
+        <button type="button" class="next" aria-label="Next image">&#10095;</button>
 
         <img id="lightbox-img" src="" alt=""> 
         <div id="caption">...</div> 

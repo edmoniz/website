@@ -1,8 +1,7 @@
 
 /*    Author: Ed Moniz
-      Student ID: T00444190
       Date: November 2025 
-      COMP2681 Capstone Project 
+      EdMonizPhotography Website 
       Filename: layout.css
 */
 
@@ -70,7 +69,7 @@ p {
 
 
 /* Vertical Navigation/Left Container */
-#leftContainer {
+.leftContainer {
   flex: 1;
   min-width: 0;
   padding: 15px;
@@ -110,16 +109,16 @@ padding: 20px;
   padding: 20px 0px;
 } 
 
-#image-left,
-#image-right {
+.image-left,
+.image-right {
   flex: 0 1 50%;
   min-width: 280px;
   cursor: pointer;
   float: left;
 }
 
-#image-left,
-#image-right {
+.image-left,
+.image-right {
   flex: 0 0 40%;
 }
 
@@ -217,21 +216,6 @@ footer {
   min-width: 0;
 }
 
-#timeHeading {
-  padding-top: 30px;
-  font-size: 1.3em;
-  color: var(--accentDark);
-  font-family: 'Trebuchet MS' sans-serif, Helvetica, sans-serif;
-}
-
-#dateNow {
-  font-size: 1.3em;
-  padding: 20px;
-  line-height: 1.1em;
-  color: var(--accentDark);
-  font-family: 'Trebuchet MS', Helvetica, sans-serif;
-}
-
 footer p {
   font-size: 1.1em;
   color: var(--black);
@@ -249,108 +233,6 @@ footer p {
 
 .icons img {
   width: 3em;
-}
-
-
-/* Styles for countdown */
-#countdown {
-  /* Set the dynamic color based on days left (controlled by JavaScript) */
-  color: #4CAF50;
-  /* Fallback to a nice green */
-  font-family: Arial, sans-serif;
-  text-align: center;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 12px;
-  background-color: #f9f9f9;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  display: flex;
-  /* Makes the countdown block a Flex container */
-  flex-direction: column;
-  /* Stacks its internal content vertically */
-  align-items: flex-start;
-  /* Transition color changes smoothly */
-  transition: color 0.5s ease-in-out;
-  margin: 0px auto;
-  /* Center the block on the page */
-}
-      
-/*
-  Targets the row of time units (Days, Hours, Minutes, Seconds).
-*/
-.countdown-blocks {
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
-  /* Aligns content to the top within the flex item */
-  margin-bottom: 20px;
-}
-
-.countdown-blocks>div {
-  flex: 1;
-  /* ensures each block takes an equal amount of space */
-  padding: 10px;
-  margin: 0 5px;
-  border-right: 1px solid #eee;
-  /* light separator line between blocks */
-}
-
-/* remove the separator from the last block */
-.countdown-blocks>div:last-child {
-  border-right: none;
-}
-      
-/*
-  targets the large numbers (Days, Hours, etc.) inside the blocks.
-*/
-.countdown-blocks span {
-  display: block;
-  /* Makes the number take up its own line */
-  font-size: 2.5em;
-  /* Large size for the numbers */
-  font-weight: bold;
-  line-height: 1.1;
-  /* Adjust spacing above/below the number */
-}
-      
-/*
-  Label Styling
-  Targets the text labels (Days, Hours, etc.) below the numbers.
-*/
-
-.countdown-blocks br + div {
-  /* Styling for the text "Days", "Hours", etc. */
-  font-size: 0.9em;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-top: 5px;
-}
-      
-/*
-  Current Date Display Styling
-*/
-#dateNow {
-  margin-top: 15px;
-  padding-top: 10px;
-  border-top: 1px dashed #ccc;
-  font-size: 0.9em;
-  font-style: italic;
-}
-      
-/*
-  Countdown Text Styling
-*/
-#countdown p {
-  font-size: 1.2em;
-  font-weight: 500;
-  margin-bottom: 5px;
-}
-      
-/*
-  improves the look when the color changes based on the days left logic.
-*/
-#countdown * {
-  transition: color 0.5s ease-in-out;
 }
 
 
@@ -436,11 +318,9 @@ aside {
   display: none;
 }
 
-#leftContainer {
-  /* Including #leftContainer for robustness */
+.leftContainer {
   flex: auto;
   width: 50%;
-  /* Keeping 50% width from File One */
   min-width: unset;
   padding: 10px;
 }

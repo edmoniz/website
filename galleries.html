@@ -1,9 +1,8 @@
 
 <!--
   Author: Ed Moniz
-  Student ID: T00444190
   Date:   November 2025
-  COMP2681 Capstone Project
+  EdMonizPhotography Website
 
   Filename: galleries.html
 -->
@@ -12,8 +11,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>Galleries &mdash; Eduardo Moniz</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Galleries Website</title>
+    <meta name="description" content="Photo galleries and folios by Eduardo Moniz: PPOC salon submissions, night photography accreditation, the Coastal and Egyptian Collection folios, and more.">
+    <meta name="author" content="Eduardo Moniz">
     <link rel="stylesheet" href="css_files/reset.css">
     <link rel="icon" href="data:,">
     <link rel="stylesheet" href="css_files/colors.css">
@@ -26,11 +27,13 @@
     <script src="scripts/lightbox.js" defer></script>
 </head>
 <body>
+      <a class="skip-link" href="#mainContainer">Skip to main content</a>
     <header>
       <a href="index.html"><img src="images/edmoniz_logo.png" alt="Eduardo Moniz"></a>
     </header>
-    <a id="navicon" href="#">
+    <button id="navicon" type="button" aria-label="Toggle navigation menu" aria-expanded="false">
           <img src="images/navicon.png" alt="" />
+    </button>
     <nav class="horizontal">
         <ul>
           <li><a href="index.html">Home</a></li>
@@ -56,7 +59,7 @@
           <h2>Welcome to the Gallery Page</h2>
           <h3 id="galleryH3" >Select a gallery from the menu to view images.</h3>
           <div class="image-stack">
-            <img src="images/artGallery.jfif" alt="Image 1" class="stacked-image">
+            <img src="images/artGallery.jpg" alt="" class="stacked-image">
 <!--             <img src="images/tutorials.jpg" alt="Image 2" class="stacked-image">
             <img src="images/articles.webp" alt="Image 3" class="stacked-image"> -->
           </div>
@@ -76,14 +79,14 @@
     <footer>
          <div id="footerInfo">
                <p>&copy; 2026 Eduardo Moniz. All rights reserved.</p>
-               <p>Updated July 2026</p>
+               <p>Updated August 2026</p>
          </div>   
       </footer>
     <div id="lightbox">
       <div class="lightbox-content">
-        <span class="close">×</span>
-        <a class="prev">&#10094;</a>
-        <a class="next">&#10095;</a>
+        <button type="button" class="close" aria-label="Close">×</button>
+        <button type="button" class="prev" aria-label="Previous image">&#10094;</button>
+        <button type="button" class="next" aria-label="Next image">&#10095;</button>
 
         <img id="lightbox-img" src="" alt=""> 
         <div id="caption">...</div> 

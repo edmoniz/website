@@ -2,9 +2,8 @@
 
 /* 
   Author: Ed Moniz
-  Student ID: T00444190
   Date:   November 2025
-  COMP2681 Capstone Project
+  EdMonizPhotography Website
 
   Filename: article.js 
 */
@@ -13,6 +12,8 @@
 
 
 // two arrays defining the articles
+(function () {
+  'use strict';
 var articleFileNames = ['OnePhotoJourney.html', 'lightroom_tips.html', 'virtualCopies.html'];
 var menuTitles = ['One Photographer\'s Journey', 'Lightroom Tips', 'Lightroom Virtual Copies'];
 // common path prefix for the articles
@@ -90,9 +91,4 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
-
-
-
-
-
-
+})();

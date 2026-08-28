@@ -2,15 +2,14 @@
 /*
 
  Author:  Ed Moniz
- Student  ID: T00444190
  Date:    November 2025
- COMP2681 Capstone Project
+ EdMonizPhotography Website
 
  Filename: colors.css
 
  */
     
-#image {
+.articleImg {
   width: 290px;
   height: auto;
   display: block;
@@ -18,12 +17,12 @@
   cursor: pointer;
 }
 
-#figLeft {
+.figLeft {
   float: left;
   margin: 20px 20px 20px 0px;
 }
 
-#figRight {
+.figRight {
   float: right;
   margin: 20px 0px 20px 20px;
 

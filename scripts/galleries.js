@@ -2,14 +2,15 @@
 
 /* 
   Author: Ed Moniz
-  Student ID: T00444190
   Date: November 2025
-  COMP2681 Capstone Project
+  EdMonizPhotography Website
 
   Filename: galleries.js 
 */
 
 // two arrays defining the galleries
+(function () {
+  'use strict';
 var articleFileNames = ['ppocSalon.html', 'accreditation.html', 
   'folio_Coastal_Collection.html', 'folio_Egyptian_Collection.html',
   'poetry_in_motion.html', 'black_white_fav.html'];
@@ -70,3 +71,4 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+})();
