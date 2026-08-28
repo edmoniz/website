@@ -1,0 +1,15 @@
+# Normalize line endings so they don't depend on anyone's git config.
+* text=auto eol=lf
+
+# Treat binary assets as binary (no line-ending or diff processing).
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.jfif  binary
+*.webp  binary
+*.gif   binary
+*.ico   binary
+*.pdf   binary
+*.ttf   binary
+*.woff  binary
+*.woff2 binary
