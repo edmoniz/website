@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Folder Menu Builder</title>
+  <link rel="shortcut icon" href="#">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    button {
+      padding: 10px 16px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .folder-container {
+      background-color: #f4f4f9;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      padding: 15px;
+      margin-top: 15px;
+      max-width: 500px;
+    }
+    ul {
+      margin: 10px 0 0 0;
+      padding-left: 20px;
+    }
+    .note {
+      font-size: 12px;
+      color: #666;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Select Root Folder to Load Subdirectories</h2>
+
+  <!-- Hidden folder picker input -->
+  <input type="file" id="folderInput" webkitdirectory directory style="display: none;" />
+  <button id="selectFolderBtn">Select Root Folder</button>
+
+  <div class="folder-container">
+    <p id="status">No folder selected yet.</p>
+    <ul id="folderList"></ul>
+    <p class="note"><strong>Note:</strong> Browsers only detect subfolders that contain at least one file. Completely empty subfolders are ignored by the File API.</p>
+  </div>
+
+  <script>
+    // Global array to hold folder names for your menus
+    let folderNamesArray = [];
+
+    const folderInput = document.getElementById('folderInput');
+    const selectBtn = document.getElementById('selectFolderBtn');
+    const statusEl = document.getElementById('status');
+    const listEl = document.getElementById('folderList');
+
+    selectBtn.addEventListener('click', () => {
+      folderInput.click();
+    });
+
+    folderInput.addEventListener('change', (event) => {
+      const files = event.target.files;
+      const subfolders = new Set();
+
+      for (const file of files) {
+        // webkitRelativePath format: "RootFolder/SubFolder/filename.ext" or "RootFolder/filename.ext"
+        const pathSegments = file.webkitRelativePath.split('/');
+
+        // RootFolder is index 0. The immediate subfolder is index 1.
+        // If length > 2, it means the file is inside a subfolder (not directly in root).
+        if (pathSegments.length > 2) {
+          subfolders.add(pathSegments[1]);
+        }
+      }
+
+      // Convert Set to Array and store globally
+      folderNamesArray = Array.from(subfolders);
+
+      console.log('Detected Folders Array:', folderNamesArray);
+
+      renderFoldersToScreen(folderNamesArray);
+    });
+
+    function renderFoldersToScreen(folders) {
+      listEl.innerHTML = '';
+
+      if (folders.length === 0) {
+        statusEl.textContent = 'No subdirectories containing files were found inside the selected root folder.';
+        return;
+      }
+
+      statusEl.innerHTML = `Found <strong>${folders.length}</strong> subdirectory/subdirectories:`;
+
+      folders.forEach(folderName => {
+        const li = document.createElement('li');
+        li.textContent = folderName;
+        listEl.appendChild(li);
+      });
+    }
+  </script>
+</body>
+</html>

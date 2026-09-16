@@ -1,0 +1,91 @@
+
+<!--
+  Author: Ed Moniz
+  Date:   November 2025
+  EdMonizPhotography Website
+
+  Filename: galleries.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Galleries &mdash; Eduardo Moniz</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Photo galleries and folios by Eduardo Moniz: PPOC salon submissions, night photography accreditation, the Coastal and Egyptian Collection folios, and more.">
+    <meta name="author" content="Eduardo Moniz">
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="layout.css">
+    <link rel="stylesheet" href="galleries.css">
+    <script src="galleries.js" defer></script>
+</head>
+<body>
+      <a class="skip-link" href="#mainContainer">Skip to main content</a>
+    <header>
+      <a href="index.html"><img src="images/edmoniz_logo.png" alt="Eduardo Moniz"></a>
+    </header>
+    <button id="navicon" type="button" aria-label="Toggle navigation menu" aria-expanded="false">
+          <img src="images/navicon.png" alt="" />
+    </button>
+    <nav class="horizontal">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="galleries.html">Galleries</a></li>
+          <li><a href="articles.html">Articles</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="tutorials.html">Tutorials</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="form.html">Contact Us</a></li>
+        </ul>
+    </nav>
+    <main id="mainContainer">
+        <aside class="leftContainer" >
+            <nav>
+                <ul class="verticalMenu">
+                  <!-- items will be added by script when page is run   -->
+                </ul>
+            </nav>
+        </aside>
+        
+
+      <article id="articleContainer">
+          <h2>Welcome to the Gallery Page</h2>
+          <h3 id="galleryH3" >Select a gallery from the menu to view images.</h3>
+          <div class="image-stack">
+            <img src="images/artGallery.jpg" alt="" class="stacked-image">
+<!--             <img src="images/tutorials.jpg" alt="Image 2" class="stacked-image">
+            <img src="images/articles.webp" alt="Image 3" class="stacked-image"> -->
+          </div>
+      </article>
+     </main>
+     <nav class="horizontal">
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="galleries.html">Galleries</a></li>
+              <li><a href="articles.html">Articles</a></li>
+              <li><a href="resources.html">Resources</a></li>
+              <li><a href="tutorials.html">Tutorials</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="form.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    <footer>
+         <div id="footerInfo">
+               <p>&copy; 2026 Eduardo Moniz. All rights reserved.</p>
+               <p>Updated August 2026</p>
+         </div>   
+      </footer>
+    <div id="lightbox">
+      <div class="lightbox-content">
+        <button type="button" class="close" aria-label="Close">×</button>
+        <button type="button" class="prev" aria-label="Previous image">&#10094;</button>
+        <button type="button" class="next" aria-label="Next image">&#10095;</button>
+
+        <img id="lightbox-img" src="" alt=""> 
+        <div id="caption">...</div> 
+
+      </div>
+    </div>
+</body>
+</html>
