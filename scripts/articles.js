@@ -1,22 +1,22 @@
 
 
-/* 
+/*
   Author: Ed Moniz
-  Date: November 2025
+  Date:   November 2025
   EdMonizPhotography Website
 
-  Filename: galleries.js 
+  Filename: articles.js
 */
 
-// vertical menu is built dynamically from galleries-manifest.json,
-// which is generated from the Galleries/ folder by generate-gallery-manifest.js
+// vertical menu is built dynamically from articles-manifest.json,
+// which is generated from the Articles/ folder by generate-articles-manifest.js
 (function () {
   'use strict';
 
-// folder that holds one subfolder per gallery
-const galleriesFolder = 'Galleries';
-// manifest listing each gallery folder, its html file, and its title
-const manifestPath = './galleries-manifest.json';
+// folder that holds one subfolder per article
+const articlesFolder = 'Articles';
+// manifest listing each article folder, its html file, and its title
+const manifestPath = './articles-manifest.json';
 
 document.addEventListener('DOMContentLoaded', () => {
   const navElement = document.querySelector('aside.leftContainer nav');
@@ -32,18 +32,18 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       return response.json();
     })
-    .then(galleries => buildMenu(navElement, galleries))
+    .then(articles => buildMenu(navElement, articles))
     .catch(error => {
-      console.error('There was a problem loading the gallery manifest:', error);
+      console.error('There was a problem loading the articles manifest:', error);
     });
 });
 
-function buildMenu(navElement, galleries) {
+function buildMenu(navElement, articles) {
   const ulElement = document.createElement('ul');
   ulElement.className = 'verticalMenu';
 
-  galleries.forEach(({ folder, file, title }) => {
-    const fullPath = `${galleriesFolder}/${encodeURIComponent(folder)}/${encodeURIComponent(file)}`;
+  articles.forEach(({ folder, file, title }) => {
+    const fullPath = `${articlesFolder}/${encodeURIComponent(folder)}/${encodeURIComponent(file)}`;
     const liElement = document.createElement('li');
     const aElement = document.createElement('a');
     aElement.href = '#';
@@ -78,7 +78,8 @@ function buildMenu(navElement, galleries) {
           }
         })
         .catch(error => {
-          console.error('There was a problem with the fetch operation:', error);
+          console.error('There was a problem fetching the article:', error);
+          articleContainer.innerHTML = `<h2>Error!</h2><p>Could not load the article from: <strong>${articleFileName}</strong>. Check the file path and ensure it exists. (${error.message})</p>`;
         });
 
       console.log(`Fetching article: ${articleFileName}`);

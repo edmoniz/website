@@ -21,12 +21,12 @@
 
 const fs = require('fs');
 const path = require('path');
-const { buildGalleryManifest } = require('./manifest-lib');
+const { buildManifest } = require('./manifest-lib');
 
 const galleriesDir = path.join(__dirname, 'Galleries');
 const outputFile = path.join(__dirname, 'galleries-manifest.json');
 
-const entries = buildGalleryManifest(galleriesDir);
+const entries = buildManifest(galleriesDir);
 
 fs.writeFileSync(outputFile, JSON.stringify(entries, null, 2) + '\n');
 console.log(`Wrote ${entries.length} gallery entr${entries.length === 1 ? 'y' : 'ies'} to ${path.basename(outputFile)}:`);

@@ -1,12 +1,32 @@
 [
   {
-    "folder": "Black and White Favourites",
+    "folder": "Black and White Gallery",
     "file": "black_white_fav.html",
     "title": "Black and White Gallery"
   },
   {
+    "folder": "Coastal Collection Folio",
+    "file": "folio_Coastal_Collection.html",
+    "title": "Coastal Collection Folio"
+  },
+  {
+    "folder": "Egyptian Collection",
+    "file": "folio_Egyptian_Collection.html",
+    "title": "Egyptian Collection"
+  },
+  {
+    "folder": "Night Accreditation",
+    "file": "accreditation.html",
+    "title": "Night Accreditation"
+  },
+  {
+    "folder": "Poetry in Motion",
+    "file": "poetry_in_motion.html",
+    "title": "Poetry in Motion"
+  },
+  {
     "folder": "PPOC Salons",
     "file": "ppocSalon.html",
-    "title": "PPOC Salon Submissions"
+    "title": "PPOC Salons"
   }
 ]

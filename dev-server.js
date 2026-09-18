@@ -22,10 +22,12 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
-const { buildGalleryManifest } = require('./manifest-lib');
+const { buildManifest, buildGalleryImages } = require('./manifest-lib');
 
 const rootDir = __dirname;
 const galleriesDir = path.join(rootDir, 'Galleries');
+const articlesDir = path.join(rootDir, 'Articles');
+const tutorialsDir = path.join(rootDir, 'Tutorials');
 const port = process.env.PORT || 8189;
 
 const mimeTypes = {
@@ -43,16 +45,28 @@ const mimeTypes = {
   '.ico': 'image/x-icon',
 };
 
-function serveManifest(res) {
-  const entries = buildGalleryManifest(galleriesDir);
+function serveManifest(res, contentDir) {
+  const entries = buildManifest(contentDir);
   const body = JSON.stringify(entries, null, 2);
   res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
   res.end(body);
 }
 
+function serveGalleryImages(res, folderName) {
+  const folderPath = path.join(galleriesDir, folderName);
+  if (!folderPath.startsWith(galleriesDir) || !fs.existsSync(folderPath)) {
+    res.writeHead(404, { 'Content-Type': 'text/plain' });
+    res.end('Not found');
+    return;
+  }
+  const data = buildGalleryImages(folderPath);
+  res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
+  res.end(JSON.stringify(data, null, 2));
+}
+
 function serveStaticFile(req, res) {
   const requestPath = decodeURIComponent(req.url.split('?')[0]);
-  const relativePath = requestPath === '/' ? 'galleries.html' : requestPath;
+  const relativePath = requestPath === '/' ? 'index.html' : requestPath;
   const normalizedPath = path.normalize(relativePath).replace(/^(\.\.[/\\])+/, '');
   let filePath = path.join(rootDir, normalizedPath);
 
@@ -85,7 +99,23 @@ const server = http.createServer((req, res) => {
   const requestPath = req.url.split('?')[0];
 
   if (requestPath === '/galleries-manifest.json') {
-    serveManifest(res);
+    serveManifest(res, galleriesDir);
+    return;
+  }
+
+  const galleryImagesMatch = decodeURIComponent(requestPath).match(/^\/Galleries\/([^/]+)\/images\.json$/);
+  if (galleryImagesMatch) {
+    serveGalleryImages(res, galleryImagesMatch[1]);
+    return;
+  }
+
+  if (requestPath === '/articles-manifest.json') {
+    serveManifest(res, articlesDir);
+    return;
+  }
+
+  if (requestPath === '/tutorials-manifest.json') {
+    serveManifest(res, tutorialsDir);
     return;
   }
 
@@ -95,5 +125,5 @@ const server = http.createServer((req, res) => {
 server.listen(port, () => {
   console.log(`Gallery dev server running at http://localhost:${port}`);
   console.log(`Serving ${rootDir}`);
-  console.log('galleries-manifest.json is computed live from Galleries/ on every request.');
+  console.log('galleries-manifest.json, articles-manifest.json, tutorials-manifest.json, and each images-only gallery\'s images.json are computed live on every request.');
 });

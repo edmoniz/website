@@ -1,0 +1,38 @@
+/*
+
+ Author:  Ed Moniz
+ Date:    November 2025
+ EdMonizPhotography Website
+
+ Filename: colors.css
+  This file provides the color pallette for the Capstone Project
+*/
+
+:root {
+/* Main colors */
+  --primary: lightgray;
+  --primaryDark: hsla(0, 0%, 38%, 1); /* ~6:1 contrast on white — WCAG AA for nav links */
+  --secondary: hsla(0, 0%, 100%, 1);
+    
+  /* Accent colors */
+  --accentLight: rgba(255, 255, 0, .6);
+  --accentDark: rgba(0, 0, 0, 0.7);
+  --body-text: var(--white) ;
+  --color-h2: var(--white);
+  --color-h3: var(--primary);
+  --menu-text: #222222;
+  --alt-menu-back: #e2e6ea;
+  --aside-back: #f8f9fa;
+  --aside-hr: #ddd;
+  --black: black;
+  --links: rgb(0, 250, 0);
+  --inputInvalid: rgb(255, 232, 233);
+  --inputValid: rgb(220, 255, 220);
+  --blockquotebackground: #FFFEB6;
+  --white: white;
+  --red: red;
+  --blue: blue;
+  --gold: gold;
+  --galleryBorder: rgba(230, 230, 250, 0.7);
+
+}

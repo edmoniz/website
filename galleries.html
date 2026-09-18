@@ -16,9 +16,13 @@
     <meta name="description" content="Photo galleries and folios by Eduardo Moniz: PPOC salon submissions, night photography accreditation, the Coastal and Egyptian Collection folios, and more.">
     <meta name="author" content="Eduardo Moniz">
     <link rel="icon" href="data:,">
-    <link rel="stylesheet" href="layout.css">
-    <link rel="stylesheet" href="galleries.css">
-    <script src="galleries.js" defer></script>
+    <link rel="stylesheet" href="css_files/colors.css">
+      <link rel="stylesheet" href="css_files/layout.css">
+      <link rel="stylesheet" href="css_files/menus.css">
+      <link rel="stylesheet" href="css_files/galleries.css">
+      <link rel="stylesheet" href="css_files/lightbox.css">
+    <script src="scripts/galleries.js" defer></script>
+    <script src="scripts/lightbox.js" defer></script>
 </head>
 <body>
       <a class="skip-link" href="#mainContainer">Skip to main content</a>
@@ -40,6 +44,7 @@
         </ul>
     </nav>
     <main id="mainContainer">
+        <h2 class="h2Heading">Welcome to the Gallery Page</h2>
         <aside class="leftContainer" >
             <nav>
                 <ul class="verticalMenu">
@@ -47,17 +52,16 @@
                 </ul>
             </nav>
         </aside>
-        
-
-      <article id="articleContainer">
-          <h2>Welcome to the Gallery Page</h2>
-          <h3 id="galleryH3" >Select a gallery from the menu to view images.</h3>
-          <div class="image-stack">
+        <!-- galleries.js swaps this whole div's contents for the chosen
+             gallery file; the welcome text + image stack show until then -->
+        <div id="articleContainer">
+          <p>Pliease select a gallery from the menu to view images.</p>
+          <figure class="image-stack">
             <img src="images/artGallery.jpg" alt="" class="stacked-image">
-<!--             <img src="images/tutorials.jpg" alt="Image 2" class="stacked-image">
-            <img src="images/articles.webp" alt="Image 3" class="stacked-image"> -->
-          </div>
-      </article>
+            <img src="images/tutorials.jpg" alt="" class="stacked-image">
+            <img src="images/articles.webp" alt="" class="stacked-image">
+          </figure>
+        </div>
      </main>
      <nav class="horizontal">
             <ul>

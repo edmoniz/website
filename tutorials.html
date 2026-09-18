@@ -1,0 +1,97 @@
+
+<!-- 
+  Author: Ed Moniz
+  Date:   November 2025
+  EdMonizPhotography Website
+
+  Filename: tutorials.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tutorials &mdash; Eduardo Moniz</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Step-by-step photography editing tutorials by Eduardo Moniz: the banana flower, Malvern Hall subtractive editing, and the saguaro cactus.">
+    <meta name="author" content="Eduardo Moniz">
+    <link rel="stylesheet" href="css_files/reset.css">
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="css_files/colors.css">
+    <link rel="stylesheet" href="css_files/layout.css">
+    <link rel="stylesheet" href="css_files/menus.css">
+    <link rel="stylesheet" href="css_files/galleries.css">
+    <link rel="stylesheet" href="css_files/lightbox.css">
+    <script src="scripts/tutorials.js" defer></script>
+    <script src="scripts/menus.js" defer ></script>
+    <script src="scripts/lightbox.js" defer></script>
+</head>
+
+<body>
+      <a class="skip-link" href="#mainContainer">Skip to main content</a>
+    <header>
+        <a href="index.html"><img src="images/edmoniz_logo.png" alt="Eduardo Moniz"></a>
+    </header>
+        <button id="navicon" type="button" aria-label="Toggle navigation menu" aria-expanded="false">
+            <img src="images/navicon.png" alt="" />
+        </button>
+    <nav class="horizontal">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="galleries.html">Galleries</a></li>
+          <li><a href="articles.html">Articles</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="#">Tutorials</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="form.html">Contact Us</a></li>
+        </ul>
+    </nav>
+    <main id="mainContainer">
+        <h2 class="h2Heading">Welcome to the Tutorial Section</h2>
+        <aside class="leftContainer" >
+            <nav>
+                <ul class="verticalMenu">
+                  <!-- items will be added by script when page is run   -->
+                </ul>
+            </nav>
+        </aside>
+
+        <article id="articleContainer">
+            <p>Please select a tutorial from the menu.</p>
+            <figure class="image-stack">
+                <img src="images/tutorials.jpg" alt="" class="stacked-image">
+                <img src="images/articles.webp" alt="" class="stacked-image">
+                <img src="images/artGallery.jpg" alt="" class="stacked-image">
+            </figure>
+        </article>
+     </main>
+     <nav class="horizontal">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="galleries.html">Galleries</a></li>
+            <li><a href="articles.html">Articles</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="tutorials.html">Tutorials</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="form.html">Contact Us</a></li>
+        </ul>
+        </nav>
+    <footer>
+         <div id="footerInfo">
+               <p>&copy; 2026 Eduardo Moniz. All rights reserved.</p>
+               <p>Updated August 2026</p>
+         </div>   
+      </footer>
+    <div id="lightbox">
+      <div class="lightbox-content">
+        <button type="button" class="close" aria-label="Close">×</button>
+        <button type="button" class="prev" aria-label="Previous image">&#10094;</button>
+        <button type="button" class="next" aria-label="Next image">&#10095;</button>
+
+        <img id="lightbox-img" src="" alt=""> 
+        <div id="caption">...</div> 
+
+      </div>
+    </div>
+</body>
+</html>
