@@ -1,32 +1,38 @@
 [
   {
     "folder": "Black and White Gallery",
-    "file": "black_white_fav.html",
-    "title": "Black and White Gallery"
+    "file": null,
+    "title": "Black and White Gallery",
+    "type": "images"
   },
   {
     "folder": "Coastal Collection Folio",
-    "file": "folio_Coastal_Collection.html",
-    "title": "Coastal Collection Folio"
+    "file": null,
+    "title": "Coastal Collection Folio",
+    "type": "folio"
   },
   {
-    "folder": "Egyptian Collection",
-    "file": "folio_Egyptian_Collection.html",
-    "title": "Egyptian Collection"
+    "folder": "Egyptian Collection Folio",
+    "file": null,
+    "title": "Egyptian Collection Folio",
+    "type": "folio"
   },
   {
     "folder": "Night Accreditation",
-    "file": "accreditation.html",
-    "title": "Night Accreditation"
+    "file": null,
+    "title": "Night Accreditation",
+    "type": "images"
   },
   {
     "folder": "Poetry in Motion",
-    "file": "poetry_in_motion.html",
-    "title": "Poetry in Motion"
+    "file": null,
+    "title": "Poetry in Motion",
+    "type": "images"
   },
   {
     "folder": "PPOC Salons",
     "file": "ppocSalon.html",
-    "title": "PPOC Salons"
+    "title": "PPOC Salons",
+    "type": "html"
   }
 ]

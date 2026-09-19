@@ -42,13 +42,14 @@ function buildMenu(navElement, galleries) {
   const ulElement = document.createElement('ul');
   ulElement.className = 'verticalMenu';
 
-  galleries.forEach(({ folder, file, title }) => {
+  galleries.forEach(({ folder, file, title, type }) => {
     const liElement = document.createElement('li');
     const aElement = document.createElement('a');
     aElement.href = '#';
     aElement.textContent = title;
     if (file === null) {
       aElement.setAttribute('data-gallery-folder', folder);
+      aElement.setAttribute('data-gallery-type', type);
     } else {
       const fullPath = `${galleriesFolder}/${encodeURIComponent(folder)}/${encodeURIComponent(file)}`;
       aElement.setAttribute('data-article', fullPath);
@@ -93,12 +94,14 @@ function buildMenu(navElement, galleries) {
       event.preventDefault();
       const folder = event.target.getAttribute('data-gallery-folder');
       const title = event.target.textContent;
-      renderImagesOnlyGallery(articleContainer, folder, title);
+      const type = event.target.getAttribute('data-gallery-type');
+      renderImagesOnlyGallery(articleContainer, folder, title, type);
     });
   });
 }
 
-function renderImagesOnlyGallery(articleContainer, folder, title) {
+function renderImagesOnlyGallery(articleContainer, folder, title, type) {
+  const isFolio = type === 'folio';
   const manifestUrl = `${galleriesFolder}/${encodeURIComponent(folder)}/images.json`;
 
   fetch(manifestUrl)
@@ -132,14 +135,21 @@ function renderImagesOnlyGallery(articleContainer, folder, title) {
         const img = document.createElement('img');
         img.src = imgPath;
         img.setAttribute('data-full', imgPath);
-        img.alt = caption;
         img.className = 'gallery-img';
-        const figcaption = document.createElement('figcaption');
-        figcaption.className = 'figCaption';
-        figcaption.textContent = caption;
-
         figure.appendChild(img);
-        figure.appendChild(figcaption);
+
+        if (isFolio) {
+          // Folios are a complete presentation: no per-image caption,
+          // either as a thumbnail label or in the lightbox/loupe view.
+          img.alt = '';
+        } else {
+          img.alt = caption;
+          const figcaption = document.createElement('figcaption');
+          figcaption.className = 'figCaption';
+          figcaption.textContent = caption;
+          figure.appendChild(figcaption);
+        }
+
         galleryDiv.appendChild(figure);
       });
 

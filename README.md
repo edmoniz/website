@@ -31,6 +31,9 @@ Galleries/
     Heritage+Acres-1.webp
     Heritage+Acres-1.xmp
     description.txt
+  Egyptian Collection Folio/      <- folio (no .html, name has "Folio")
+    Egyptian-1.jpg ... Egyptian-14.jpg
+    description.txt
   PPOC Salons/                    <- legacy (hand-written .html)
     ppocSalon.html
 
@@ -43,7 +46,7 @@ Tutorials/
     bananaFlowerTutorial.html
 ```
 
-A folder works one of two ways:
+A folder works one of three ways:
 
 **Legacy — hand-written `.html`.** Put exactly one `.html` file in the
 folder containing the item's markup, starting with an `<h2>` that
@@ -67,35 +70,62 @@ comes from its metadata — the `dc:title` (falling back to
 `Heritage+Acres-1.webp` + `Heritage+Acres-1.xmp`), or from XMP embedded
 directly in the image file itself if there's no sidecar (common for
 `.jpg` exports). If an image has neither, its filename (with `+`
-replaced by a space) is used as a last-resort caption. Images are
-displayed in filename order — use numeric prefixes (`01_`, `02_`, ...)
-if you want to control the order. An optional `description.txt` in the
-folder supplies the `<h3>` subtitle line; omit it and no subtitle is
-shown.
+replaced by a space) is used as a last-resort caption. That caption
+appears both under each thumbnail and in the lightbox/loupe view. An
+optional `description.txt` in the folder supplies the `<h3>` subtitle
+line, shown between the `<h2>` heading and the image grid; omit it and
+no subtitle is shown.
 
-For either mode, an empty folder (no `.html` and no images) is silently
-skipped (with a warning logged when using the static generator below).
+**Folio (Galleries/ only) — no `.html`, folder name contains "Folio".**
+Same shape as images-only (just image files plus an optional
+`description.txt`), but a folio is a complete, pre-sequenced
+presentation rather than a set of individually-captioned photos, so no
+caption is generated for any image — not under the thumbnail, and not
+in the lightbox/loupe view. What makes a folder a folio (instead of a
+plain images-only gallery) is the word "Folio" appearing anywhere in
+the folder name, e.g. `Coastal Collection Folio` or `Egyptian Collection
+Folio` — that's the only signal; there's no separate marker file. The
+`<h2>` (folder name) and optional `<h3>` (`description.txt`) work
+exactly as in images-only mode. Because there are no per-image titles to
+keep images in order, folio image filenames should be numbered (e.g.
+`Egyptian-1.jpg`, `Egyptian-2.jpg`, ...) — the manifest sorts filenames
+numeric-aware, so `Egyptian-2.jpg` sorts before `Egyptian-10.jpg`.
+
+For any of the three modes, an empty folder (no `.html` and no images)
+is silently skipped (with a warning logged when using the static
+generator below). A folder whose name starts with `backup` (e.g.
+`backup Coastal Collection`) is also skipped entirely, regardless of
+its contents — this is the convention for keeping a retired
+hand-written `.html` folio around for reference after converting that
+gallery to the images-only/folio convention, without it showing up as a
+menu item.
 
 ## How the automation works
 
 - **`manifest-lib.js`** — shared logic.
   - `buildManifest(contentDir)` scans a content folder (`Galleries/`,
-    `Articles/`, or `Tutorials/`), and for each subfolder uses the
+    `Articles/`, or `Tutorials/`), skipping any subfolder whose name
+    starts with `backup`, and for each remaining subfolder uses the
     folder name itself as the title (verbatim — no `<h2>` scraping). If
-    the folder has an `.html` file, that's `file`; if it has no `.html`
-    but does have images, `file` is `null` (an images-only gallery).
-    Returns an array like:
+    the folder has an `.html` file, that's `file` and `type: "html"`; if
+    it has no `.html` but does have images, `file` is `null` and `type`
+    is `"folio"` when the folder name contains the word "Folio", or
+    `"images"` otherwise. Returns an array like:
     ```json
     [
-      { "folder": "Black and White Gallery", "file": null, "title": "Black and White Gallery" },
-      { "folder": "PPOC Salons", "file": "ppocSalon.html", "title": "PPOC Salons" }
+      { "folder": "Black and White Gallery", "file": null, "title": "Black and White Gallery", "type": "images" },
+      { "folder": "Egyptian Collection Folio", "file": null, "title": "Egyptian Collection Folio", "type": "folio" },
+      { "folder": "PPOC Salons", "file": "ppocSalon.html", "title": "PPOC Salons", "type": "html" }
     ]
     ```
-  - `buildGalleryImages(folderPath)` scans an images-only gallery folder
-    and returns its subtitle plus one entry per image, each with a
-    caption read from that image's metadata (`.xmp` sidecar, or XMP
-    embedded in the file itself, falling back to a filename-derived
-    caption):
+  - `buildGalleryImages(folderPath, { folio })` scans an images-only or
+    folio gallery folder and returns its subtitle plus one entry per
+    image, sorted by filename (numeric-aware, so `Egyptian-2.jpg` sorts
+    before `Egyptian-10.jpg`). For an images-only gallery (`folio`
+    omitted or `false`) each entry also gets a caption read from that
+    image's metadata (`.xmp` sidecar, or XMP embedded in the file
+    itself, falling back to a filename-derived caption); for a folio
+    (`folio: true`) captions are skipped entirely:
     ```json
     {
       "description": "Favourite black and white images captured over the years.",
@@ -104,22 +134,35 @@ skipped (with a warning logged when using the static generator below).
       ]
     }
     ```
+    ```json
+    {
+      "description": "Welcome to the great artifacts of ancient Egypt.",
+      "images": [
+        { "file": "Egyptian-1.jpg" }
+      ]
+    }
+    ```
 - **`scripts/galleries.js`**, **`scripts/articles.js`**,
   **`scripts/tutorials.js`** — on page load, each fetches its own
   manifest (`galleries-manifest.json`, `articles-manifest.json`, or
   `tutorials-manifest.json`) and builds the vertical `<nav>` menu from
   it. Clicking a legacy item (`file` set) fetches that item's HTML file
-  and swaps it into `#articleContainer`. Clicking an images-only gallery
-  (`file: null`) instead fetches `Galleries/<folder>/images.json` and
-  builds the `<h2>`, optional `<h3>`, and all `<figure>` markup directly
-  in `#articleContainer` — there's no HTML fragment for that folder at
-  all.
+  and swaps it into `#articleContainer`. Clicking an images-only or
+  folio gallery (`file: null`) instead fetches
+  `Galleries/<folder>/images.json` and builds the `<h2>`, optional
+  `<h3>`, and all `<figure>` markup directly in `#articleContainer` —
+  there's no HTML fragment for that folder at all. For an images-only
+  gallery each `<figure>` also gets a `<figcaption>` and the image's
+  `alt` is set from its caption, used both under the thumbnail and as
+  the caption text in the lightbox/loupe view; for a folio, neither is
+  added — no caption appears anywhere for that gallery's images.
 - **`generate-gallery-manifest.js`**, **`generate-articles-manifest.js`**,
   **`generate-tutorials-manifest.js`**, **`generate-gallery-images.js`**
   — one-shot scripts for **static hosting** (the live site, served by
   Caddy with no backend/runtime). Run the relevant one(s) and they write
   the matching `*-manifest.json` (or, for `generate-gallery-images.js`,
-  an `images.json` inside each images-only gallery folder) to disk:
+  an `images.json` inside each images-only or folio gallery folder) to
+  disk:
   ```
   node generate-gallery-manifest.js
   node generate-articles-manifest.js
@@ -128,12 +171,17 @@ skipped (with a warning logged when using the static generator below).
   ```
   Re-run the relevant script any time you add, remove, or rename a
   folder under `Galleries/`, `Articles/`, or `Tutorials/` on the live
-  site (or add/retitle images in an images-only gallery), since Caddy
-  has no way to compute it on its own.
+  site (or add/retitle images in an images-only or folio gallery), since
+  Caddy has no way to compute it on its own. **All existing galleries
+  need `node generate-gallery-manifest.js && node generate-gallery-images.js`
+  re-run any time this folio routine (or any other change to
+  `manifest-lib.js`) ships** — every gallery's manifest entry and
+  `images.json` are regenerated from scratch, so a stale copy on disk
+  would otherwise keep serving the old shape.
 - **`dev-server.js`** — a small dependency-free Node HTTP server for
   **local development**. It serves the project as static files, but
   computes `/galleries-manifest.json`, `/articles-manifest.json`,
-  `/tutorials-manifest.json`, and each images-only gallery's
+  `/tutorials-manifest.json`, and each images-only or folio gallery's
   `Galleries/<folder>/images.json` fresh from their respective folders
   on every single request instead of reading a file. That means on the
   dev server, adding/removing/renaming a folder — or adding/retitling an
@@ -193,8 +241,8 @@ live:
    `manifest-lib.js`, and the four `generate-*.js` scripts into the live
    site's folder.
 2. Run each generator there once to produce its manifest (and, for
-   `generate-gallery-images.js`, an `images.json` in every images-only
-   gallery folder):
+   `generate-gallery-images.js`, an `images.json` in every images-only or
+   folio gallery folder):
    ```
    node generate-gallery-manifest.js
    node generate-articles-manifest.js
@@ -203,8 +251,8 @@ live:
    ```
 3. From then on, re-run the relevant script (manually, or via a git hook
    / CI step) any time a gallery, article, or tutorial folder changes on
-   the live site, or an image is added/retitled in an images-only
-   gallery, since it has no dev server to compute it automatically.
+   the live site, or an image is added/retitled in an images-only or
+   folio gallery, since it has no dev server to compute it automatically.
 
 ## Known gaps (pre-existing, not caused by this work)
 

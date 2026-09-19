@@ -22,7 +22,7 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
-const { buildManifest, buildGalleryImages } = require('./manifest-lib');
+const { buildManifest, buildGalleryImages, isFolioFolder } = require('./manifest-lib');
 
 const rootDir = __dirname;
 const galleriesDir = path.join(rootDir, 'Galleries');
@@ -59,7 +59,7 @@ function serveGalleryImages(res, folderName) {
     res.end('Not found');
     return;
   }
-  const data = buildGalleryImages(folderPath);
+  const data = buildGalleryImages(folderPath, { folio: isFolioFolder(folderName) });
   res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
   res.end(JSON.stringify(data, null, 2));
 }

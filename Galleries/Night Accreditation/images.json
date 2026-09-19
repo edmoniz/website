@@ -1,0 +1,45 @@
+{
+  "description": "Accreditation is a process offered by the Professional Photographers of Canada (PPOC). Members can demonstrate proficiency in a number of categories, including night photography. Each Accreditation requires submission of ten images that meet the category criteria. Judging is conducted by a panel of five judges who determine if the submission qualifies.",
+  "images": [
+    {
+      "file": "Accreditation Website Image-1.jpg",
+      "caption": "Butchar's Fireworks One"
+    },
+    {
+      "file": "Accreditation Website Image-2.jpg",
+      "caption": "Butchar's Fireworks Two"
+    },
+    {
+      "file": "Accreditation Website Image-3.jpg",
+      "caption": "Porto Sunset"
+    },
+    {
+      "file": "Accreditation Website Image-4.jpg",
+      "caption": "Douro River Bridge"
+    },
+    {
+      "file": "Accreditation Website Image-5.jpg",
+      "caption": "Sydney Opera House"
+    },
+    {
+      "file": "Accreditation Website Image-6.jpg",
+      "caption": "Dante's View"
+    },
+    {
+      "file": "Accreditation Website Image-7.jpg",
+      "caption": "Christchurch Cathedral"
+    },
+    {
+      "file": "Accreditation Website Image-8.jpg",
+      "caption": "Victoria Inner Harbour"
+    },
+    {
+      "file": "Accreditation Website Image-9.jpg",
+      "caption": "Island View Beach"
+    },
+    {
+      "file": "Accreditation Website Image-10.jpg",
+      "caption": "Brentwood Bay"
+    }
+  ]
+}
