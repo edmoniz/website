@@ -10,6 +10,17 @@
 
  */
 
+/* #articleContainer (layout.css) is a wrapping flex row built for the
+   Articles/Tutorials multi-column layout. Force the gallery heading,
+   description, and image grid onto their own full-width rows so the
+   heading and description don't end up side by side whenever the
+   description text is short enough to fit next to the heading. */
+#articleContainer > h2,
+#articleContainer > h3,
+#articleContainer > .gallery {
+  flex-basis: 100%;
+}
+
 /* Basic Gallery Styling */
 .gallery {
   display: flex;
@@ -51,6 +62,9 @@
 
 #galleryH3  {
   margin: 0 auto;
+  margin-bottom: 1.5rem;
+  font-weight: normal;
+  font-size: 1rem;
 }
 
 .figCaption {
