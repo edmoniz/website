@@ -1,7 +1,20 @@
 [
   {
+    "folder": "Lightroom Tips",
+    "file": "lightroom_tips.html",
+    "title": "Lightroom Tips",
+    "type": "html"
+  },
+  {
+    "folder": "Lightroom Virtual Copies",
+    "file": "virtualCopies.html",
+    "title": "Lightroom Virtual Copies",
+    "type": "html"
+  },
+  {
     "folder": "One Photographer's Journey",
     "file": "OnePhotoJourney.html",
-    "title": "One Photographer's Journey"
+    "title": "One Photographer's Journey",
+    "type": "html"
   }
 ]
