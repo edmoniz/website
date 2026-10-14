@@ -254,6 +254,21 @@ live:
    the live site, or an image is added/retitled in an images-only or
    folio gallery, since it has no dev server to compute it automatically.
 
+## Cache-busting version tags
+
+Cloudflare sits in front of the live site and caches `.css` and `.js`
+files (browsers are told to keep them for 4 hours), so a release can show
+new pages with old stylesheets. To prevent that, every local stylesheet
+and script link in the top-level pages carries a version tag, e.g.
+`css_files/layout.css?v=20261013`. Caddy and `dev-server.js` both ignore
+the `?v=` part when serving the file.
+
+**Before each release, bump the tag** to the release date so every
+visitor fetches fresh copies:
+```
+sed -i -E 's/\?v=[0-9]+"/?v=YYYYMMDD"/g' *.html
+```
+
 ## Known gaps (pre-existing, not caused by this work)
 
 - There's no `resources.html`, `about.html`, or `form.html` in this dev

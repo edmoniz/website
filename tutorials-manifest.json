@@ -2,6 +2,19 @@
   {
     "folder": "Banana Flower Tutorial",
     "file": "bananaFlowerTutorial.html",
-    "title": "Banana Flower Tutorial"
+    "title": "Banana Flower Tutorial",
+    "type": "html"
+  },
+  {
+    "folder": "Malvern Hall",
+    "file": "malvernHallTutorial.html",
+    "title": "Malvern Hall",
+    "type": "html"
+  },
+  {
+    "folder": "Sagauro Cactus",
+    "file": "sagauroCactus.html",
+    "title": "Sagauro Cactus",
+    "type": "html"
   }
 ]
