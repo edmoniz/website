@@ -1,0 +1,29 @@
+{
+  "description": "Favourite black and white images captured over the years.",
+  "images": [
+    {
+      "file": "B839-2_Saskatchewan+Winter.webp",
+      "caption": "Saskatchewan Winter"
+    },
+    {
+      "file": "ConstableMalvernHall.jpg",
+      "caption": "Interpretation of Malvern Hall"
+    },
+    {
+      "file": "Heritage+Acres-1.webp",
+      "caption": "Heritage Acres Gate"
+    },
+    {
+      "file": "Heritage+Acres-2.webp",
+      "caption": "Heritage Acres Foliage"
+    },
+    {
+      "file": "Nazare+Surfer-2391.webp",
+      "caption": "Nazare Surfer"
+    },
+    {
+      "file": "Website+Home+page.webp",
+      "caption": "Website Home page"
+    }
+  ]
+}

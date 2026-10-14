@@ -1,21 +1,22 @@
 
 
-/* 
+/*
   Author: Ed Moniz
   Date: November 2025
   EdMonizPhotography Website
 
-  Filename: tutorials.js 
+  Filename: tutorials.js
 */
 
-// the two arrays defining the tutorials
+// vertical menu is built dynamically from tutorials-manifest.json,
+// which is generated from the Tutorials/ folder by generate-tutorials-manifest.js
 (function () {
   'use strict';
-var articleFileNames = ['bananaFlowerTutorial.html', 'malvernHallTutorial.html', 'sagauroCactus.html'];
-var menuTitles = ['Banana Flower Tutorial', 'Malvern Hall', 'Sagauro Cactus' ]; // Simplified the titles
 
-// common path prefix for the articles
-const contentPath = './';
+// folder that holds one subfolder per tutorial
+const tutorialsFolder = 'Tutorials';
+// manifest listing each tutorial folder, its html file, and its title
+const manifestPath = './tutorials-manifest.json';
 
 document.addEventListener('DOMContentLoaded', () => {
   const navElement = document.querySelector('aside.leftContainer nav');
@@ -24,28 +25,40 @@ document.addEventListener('DOMContentLoaded', () => {
     return;
   }
 
-  // [Menu Creation Logic - Unchanged]
+  fetch(manifestPath)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`Network response was not ok: ${response.status} ${response.statusText}`);
+      }
+      return response.json();
+    })
+    .then(tutorials => buildMenu(navElement, tutorials))
+    .catch(error => {
+      console.error('There was a problem loading the tutorials manifest:', error);
+    });
+});
+
+function buildMenu(navElement, tutorials) {
   const ulElement = document.createElement('ul');
   ulElement.className = 'verticalMenu';
-  for (let i = 0; i < articleFileNames.length; i++) {
-    const fileName = articleFileNames[i];
-    const title = menuTitles[i];
-    const fullPath = `${contentPath}${fileName}`;
+
+  tutorials.forEach(({ folder, file, title }) => {
+    const fullPath = `${tutorialsFolder}/${encodeURIComponent(folder)}/${encodeURIComponent(file)}`;
     const liElement = document.createElement('li');
     const aElement = document.createElement('a');
-    aElement.href = "#";
+    aElement.href = '#';
     aElement.textContent = title;
     aElement.setAttribute('data-article', fullPath);
     liElement.appendChild(aElement);
     ulElement.appendChild(liElement);
-  }
+  });
+
   navElement.innerHTML = '';
   navElement.appendChild(ulElement);
 
   const articleContainer = document.getElementById('articleContainer');
   const navLinks = navElement.querySelectorAll('a[data-article]');
 
-  // [Menu Click Handler - Unchanged except for calls]
   navLinks.forEach(link => {
     link.addEventListener('click', (event) => {
       event.preventDefault();
@@ -60,7 +73,9 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .then(content => {
           articleContainer.innerHTML = content;
-          setupLightbox();
+          if (typeof setupLightbox === 'function') {
+            setupLightbox();
+          }
         })
         .catch(error => {
           console.error('There was a problem with the fetch operation:', error);
@@ -69,5 +84,5 @@ document.addEventListener('DOMContentLoaded', () => {
       console.log(`Fetching article: ${articleFileName}`);
     });
   });
-});
+}
 })();

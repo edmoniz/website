@@ -1,7 +1,8 @@
 
 /*    Author: Ed Moniz
-      Date: November 2025 
-      EdMonizPhotography Website 
+      Student ID: T00444190
+      Date: August 2026
+      COMP2681 Capstone Project 
       Filename: layout.css
 */
 
@@ -18,10 +19,25 @@ html {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* hides text on screen but leaves it for screen readers. used for the <h1>
+   on pages where the header is just the logo image. */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
 
 body {
   max-width: 1024px;
-  min-width: 320px;
+  min-width: 31.25rem;
   margin: auto;
   background-color: var(--secondary);
   line-height: 1.2em;
@@ -31,7 +47,7 @@ header {
   display: flex;
   background-color: var(--secondary);
   align-items: center;
-  padding: 15px 20px;
+  padding: 1rem 1.25rem;
 }
 
 header h2 {
@@ -39,13 +55,25 @@ header h2 {
   color: var(--secondary);
   font-family: Champagne, cursive;
   font-weight: lighter;
-  margin-left: 20px;
+  margin-left: 1.25rem;
 }
 
 header img {
   width: 90%;
   height: auto;
-  margin: 10px;
+  margin: 0.625rem;
+}
+
+/* fade the main content in when the page loads */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(0.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Styling for the Main Section */
@@ -53,50 +81,64 @@ header img {
 #mainContainer {
   display: flex;
   flex-direction: row;
-  gap: 20px;
-  padding: 20px;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  padding: 1.25rem;
   border-top: 1px solid var(--accentDark);
   border-bottom: 1px solid var(--accentDark);
+  animation: fadeIn 0.6s ease-out;
 }
 
-/* General paragraph style, but overriding with more specific grid-based style later */
+/* make the page title span the full width, above the two columns */
+#mainContainer > .pageTitle {
+  flex-basis: 100%;
+}
+
+/* base paragraph style - the content grid overrides this further down */
 p {
   font-size: 1.1em;
   color: var(--black);
   font-weight: normal;
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem;
+  line-height: 1.2;
 }
 
 
-/* Vertical Navigation/Left Container */
+/* left column that holds the gallery / article / tutorial menu */
 .leftContainer {
   flex: 1;
   min-width: 0;
-  padding: 15px;
+  margin-top: 1.25rem;
 }
 
 
 /* Content Grid/Article Container */
 .content-grid {
-  flex: 1;
-  /* defines growth within #mainsection  */
+  flex: 1; /* grow to fill #mainsection */
   min-width: 0;
   display: grid;
-  /* this is a grid container */
   grid-template-columns: 1fr;
-  gap: 40px;
+  gap: 2.5rem;
   font-size: 1.1em;
-  padding: 20px;
+  padding: 1.25rem;
 }
 
 #articleContainer {
 flex: 3;
 min-width: 0;
-display: flex; 
+display: flex;
 flex-wrap: wrap;
-gap: 10px;
+gap: 0.625rem;
 font-size: 1.1em;
-padding: 20px;
+padding: 1.25rem;
+}
+
+/* the "rights reserved" style note that sits above the content items.
+   force it onto its own row so it doesn't line up next to the first item
+   and break the columns. */
+#articleContainer > .fragmentNote {
+  flex-basis: 100%;
+  margin: 0 0 0.625rem;
 }
 
 /* Styles for individual content items */
@@ -105,21 +147,16 @@ padding: 20px;
   flex: 3;
   display: flex;
   flex-wrap: wrap;
-  margin: 20px 20px;
-  padding: 20px 0px;
+  margin: 1.25rem 1.25rem;
+  padding: 1.25rem 0;
 } 
 
-.image-left,
-.image-right {
-  flex: 0 1 50%;
+#image-left,
+#image-right {
+  flex: 0 0 40%;
   min-width: 280px;
   cursor: pointer;
   float: left;
-}
-
-.image-left,
-.image-right {
-  flex: 0 0 40%;
 }
 
 .item-body {
@@ -130,8 +167,8 @@ padding: 20px;
 .item-body ul {
   list-style-type: disc;
   list-style-position: inside;
-  margin-left: 5px;
-  padding-left: 5px;
+  margin-left: 0.3rem;
+  padding-left: 0.3rem;
 }
 
 .item-body li {
@@ -147,42 +184,45 @@ padding: 20px;
   float: left;
 }
 
+/* how a heading looks comes from this class, not from whether it's an
+   h1/h2/h3 - the level is chosen for document structure only */
 .content-grid h2,
-#articleContainer h2,
 .h2Heading {
   font-size: 1.5em;
-  padding: 15px;
+  padding: 1rem;
   color: var(--secondary);
   background-color: var(--accentDark);
   display: inline-block;
   width: 100%;
   text-align: center;
-  border-radius: 10px;
-  margin-top: 0px;
-  margin-bottom: 15px;
-  box-shadow: 5px 5px 10px var(--accentDark);
+  border-radius: 0.625rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  box-shadow: 0.3rem 0.3rem 0.625rem var(--accentDark);
+  /* a dark shadow would disappear on the dark heading, so use a gold glow */
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.9), 0 0 4px rgba(255, 215, 0, 0.85), 0 0 12px rgba(255, 215, 0, 0.6);
 }
 
 .h3Heading {
   font-size: 1.1em;
-  padding: 15px;
+  padding: 1rem;
   color: var(--accentDark);
   text-align: left;
-  margin-top: 0px;
-  margin-bottom: 15px;
+  margin-top: 0;
+  margin-bottom: 1rem;
 }
 
 .content-grid p {
-  /* overrides the less specific 'p' rule with File One's specific content-grid paragraph style */
-  margin: 10px 0px;
+  /* more specific than the plain p rule above, so this one wins here */
+  margin: 0.625rem 0;
   color: var(--black);
   font-size: 1.0em;
 }
 
 .article-list li {
   list-style: circle;
-  margin-top: 5px;
-  margin-left: 45px;
+  margin-top: 0.3rem;
+  margin-left: 40px;
   line-height: 1.2;
 }
 
@@ -190,12 +230,12 @@ aside {
   flex: 1;
   display: flex;
   flex-direction: column;
-  margin-top: 20px;
+  margin-top: 1.25rem;
 }
 
 aside blockquote {
   flex-grow: 1;
-  margin-top: 0px;
+  margin-top: 0;
 }
 
 /* Styles for Footer */
@@ -203,27 +243,34 @@ footer {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  gap: 20px;
+  gap: 1.25rem;
   background-color: var(--secondary);
   text-align: center;
-  margin-top: 20px;
+  margin-top: 1.25rem;
   align-items: flex-start;
-  flex-wrap: wrap;
 }
 
+#currentDate,
 #footerInfo {
   flex: 1;
   min-width: 0;
 }
 
+#timeHeading {
+  padding-top: 2rem;
+  font-size: 1.3em;
+  color: var(--accentDark);
+  font-family: 'Trebuchet MS', Helvetica, sans-serif;
+}
+
 footer p {
   font-size: 1.1em;
   color: var(--black);
-  margin-bottom: 15px;
+  margin-bottom: 1rem;
 }
 
 .footerLinks li {
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem;
 }
 
 .footerLinks a {
@@ -236,48 +283,128 @@ footer p {
 }
 
 
-/* This section deals with the stacked images on pages galleries.html articles.html
-tutorials.html */
+/* Styles for countdown */
+#countdown {
+  /* countdown.js overrides this colour based on days left; green is the fallback */
+  color: #4CAF50;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 1.25rem;
+  border: 1px solid #ddd;
+  border-radius: 0.75rem;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 0.5rem rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: color 0.5s ease-in-out; /* fade the colour change from JS */
+  margin: 0 auto;
+}
+      
+/* the row of Days / Hours / Minutes / Seconds blocks */
+.countdown-blocks {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  /* Aligns content to the top within the flex item */
+  margin-bottom: 1.25rem;
+}
+
+.countdown-blocks>li {
+  flex: 1; /* equal width blocks */
+  padding: 0.625rem;
+  margin: 0 0.3rem;
+  border-right: 1px solid #eee; /* thin divider between blocks */
+}
+
+/* no divider after the last block */
+.countdown-blocks>li:last-child {
+  border-right: none;
+}
+
+/* the big number inside each block */
+.countdown-blocks span {
+  display: block; /* number on its own line, label underneath */
+  font-size: 2.5em;
+  font-weight: bold;
+  line-height: 1.1;
+}
+
+/* the "DAYS" / "HOURS" label text under each number */
+.countdown-blocks > li {
+  font-size: 0.9em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 0.3rem;
+}
+
+/* current date + time line under the countdown */
+#dateNow {
+  margin-top: 1rem;
+  padding: 1.25rem;
+  padding-top: 0.625rem;
+  border-top: 1px dashed #ccc;
+  line-height: 1.1rem;
+  color: var(--accentDark);
+  font-size: 0.9em;
+  font-style: italic;
+}
+      
+#countdown p {
+  font-size: 1.2em;
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+}
+
+/* fade the colour change instead of snapping when JS updates it */
+#countdown * {
+  transition: color 0.5s ease-in-out;
+}
+
+
+/* the fanned-out stack of 3 images shown on the galleries / articles /
+   tutorials landing pages before a menu item is picked */
 
 #articleContainer {
   position: relative;
   min-height: 550px;
-  padding: 20px;
+  padding: 1.25rem;
 }
 
 .image-stack {
   position: relative;
   top: 50px;
+  /* left 50% + translateX(-50%) centres the stack horizontally */
   left: 50%;
   transform: translateX(-50%);
-  width: 550px;
+  width: 550px; /* needs a fixed size for the centring + absolute children */
   height: 450px;
 }
 
 .stacked-image {
-  margin: 0 auto;
-  width: 90%;
-  height: auto;
-  border-radius: 8px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 350px;
+  height: 250px;
+  transform: scale(1) translate(0, 0);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
   z-index: 10;
 }
 
-/* 📸 Individual Image Offsets (now relative to the 0/0 point of the centered stack) */
-
-/* .stacked-image:nth-child(1) {
+.stacked-image:nth-child(1) {
   top: 100px;
-  left: 75px;
+  left: 70px;
   width: auto;
   height: 250px;
   transform: rotate(-10deg);
-  cursor: pointer;
   z-index: 6;
 }
 
 .stacked-image:nth-child(2) {
   top: 0px;
   left: 0px;
-  width: 325px;
+  width: 320px;
   height: auto;
   transform: rotate(-20deg);
   opacity: .3;
@@ -285,7 +412,7 @@ tutorials.html */
 }
 
 .stacked-image:nth-child(3) {
-  top: 38px;
+  top: 30px;
   left: 290px;
   width: 300px;
   height: auto;
@@ -294,23 +421,23 @@ tutorials.html */
   z-index: 4;
 }
 
-.stacked-image:hover {
+/* hovering a photo pops it forward, scales it up and brings it to full opacity */
+/* .stacked-image:hover {
   z-index: 10;
   transform: scale(1.7) translate(-4%, 5%);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 0.625rem 1.25rem rgba(0, 0, 0, 0.7);
   transition-delay: 0.4s;
   opacity: 1;
 } */
 
-/* Responsive design for medium screens, improves transition adjustment */
+/* narrow-ish screens: stack the columns instead of sitting side by side */
 @media screen and (max-width: 700px) {
 
 #mainsection,
 #mainContainer {
-    /* Including mainContainer for robustness */
     flex-direction: column;
     width: 100%;
-    margin-left: 20px;
+    margin-left: 1.25rem;
   }
 
 
@@ -318,17 +445,16 @@ aside {
   display: none;
 }
 
-.leftContainer {
+#leftContainer {
   flex: auto;
   width: 50%;
   min-width: unset;
-  padding: 10px;
+  padding: 0.625rem;
 }
 
-#articleContainer h2 {
+.h2Heading {
   font-size: 1.1em;
   line-height: 1.2em;
-
 }
 
 .image-container {
@@ -340,16 +466,15 @@ aside {
   height: 100%;
   object-fit: cover;
   padding-top: 100px;
-  border-radius: 8px;
+  border-radius: 0.5rem;
 }
 
 }
 
-/* Responsive design adjustments for small screens */
-@media screen and (max-width: 640px) {
+/* small screens */
+@media screen and (max-width: 62.5rem) {
 #mainsection,
 #mainContainer {
-  /* Including mainContainer for robustness */
   flex-direction: column;
   width: 100%;
 }
